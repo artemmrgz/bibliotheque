@@ -13,6 +13,11 @@
 		D93899F129E6A8E80061C6CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D93899F029E6A8E80061C6CF /* Assets.xcassets */; };
 		D93899F429E6A8E80061C6CF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D93899F229E6A8E80061C6CF /* LaunchScreen.storyboard */; };
 		D93899FD29E6B0AF0061C6CF /* UIViewController+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93899FC29E6B0AF0061C6CF /* UIViewController+Utils.swift */; };
+		D9389A0229E6C0FE0061C6CF /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9389A0129E6C0FE0061C6CF /* SearchViewController.swift */; };
+		D9389A0429E6CD360061C6CF /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9389A0329E6CD360061C6CF /* SearchResultViewController.swift */; };
+		D9389A0629E6CE460061C6CF /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9389A0529E6CE460061C6CF /* SearchResultCell.swift */; };
+		D9389A0929E8049B0061C6CF /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9389A0829E8049B0061C6CF /* NetworkService.swift */; };
+		D946551C29E8772D0037108E /* UIImageView+Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = D946551B29E8772D0037108E /* UIImageView+Networking.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +29,11 @@
 		D93899F329E6A8E80061C6CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D93899F529E6A8E80061C6CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D93899FC29E6B0AF0061C6CF /* UIViewController+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Utils.swift"; sourceTree = "<group>"; };
+		D9389A0129E6C0FE0061C6CF /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		D9389A0329E6CD360061C6CF /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
+		D9389A0529E6CE460061C6CF /* SearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
+		D9389A0829E8049B0061C6CF /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		D946551B29E8772D0037108E /* UIImageView+Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Networking.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +66,8 @@
 		D93899E629E6A8E80061C6CF /* Bibliotheque */ = {
 			isa = PBXGroup;
 			children = (
+				D9389A0729E8047E0061C6CF /* Networking */,
+				D9389A0029E6C0140061C6CF /* Search */,
 				D93899E729E6A8E80061C6CF /* AppDelegate.swift */,
 				D93899E929E6A8E80061C6CF /* SceneDelegate.swift */,
 				D93899EB29E6A8E80061C6CF /* MainViewController.swift */,
@@ -73,6 +85,25 @@
 				D93899FC29E6B0AF0061C6CF /* UIViewController+Utils.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		D9389A0029E6C0140061C6CF /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				D9389A0129E6C0FE0061C6CF /* SearchViewController.swift */,
+				D9389A0329E6CD360061C6CF /* SearchResultViewController.swift */,
+				D9389A0529E6CE460061C6CF /* SearchResultCell.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		D9389A0729E8047E0061C6CF /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				D9389A0829E8049B0061C6CF /* NetworkService.swift */,
+				D946551B29E8772D0037108E /* UIImageView+Networking.swift */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -145,6 +176,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9389A0629E6CE460061C6CF /* SearchResultCell.swift in Sources */,
+				D9389A0229E6C0FE0061C6CF /* SearchViewController.swift in Sources */,
+				D946551C29E8772D0037108E /* UIImageView+Networking.swift in Sources */,
+				D9389A0929E8049B0061C6CF /* NetworkService.swift in Sources */,
+				D9389A0429E6CD360061C6CF /* SearchResultViewController.swift in Sources */,
 				D93899FD29E6B0AF0061C6CF /* UIViewController+Utils.swift in Sources */,
 				D93899EC29E6A8E80061C6CF /* MainViewController.swift in Sources */,
 				D93899E829E6A8E80061C6CF /* AppDelegate.swift in Sources */,

@@ -17,7 +17,7 @@ class MainViewController: UITabBarController {
     }
     
     private func setupViews() {
-        let searchVC = SearchViewController()
+        let searchVC = SearchViewController(searchResultController: SearchResultViewController())
         let listVC = ReadingListViewController()
         let profileVC = ProfileViewController()
         
@@ -33,14 +33,7 @@ class MainViewController: UITabBarController {
     }
     
     private func setupTabBar() {
-        tabBar.tintColor = .black
-    }
-}
-
-class SearchViewController: UIViewController {
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .systemRed
+        tabBar.tintColor = UIColor(red: 211/255, green: 172/255, blue: 43/255, alpha: 1)
     }
 }
 

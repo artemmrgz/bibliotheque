@@ -18,6 +18,7 @@
 		D9389A0629E6CE460061C6CF /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9389A0529E6CE460061C6CF /* SearchResultCell.swift */; };
 		D9389A0929E8049B0061C6CF /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9389A0829E8049B0061C6CF /* NetworkService.swift */; };
 		D946551C29E8772D0037108E /* UIImageView+Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = D946551B29E8772D0037108E /* UIImageView+Networking.swift */; };
+		D999653B29EB1A1E00288FBC /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = D999653A29EB1A1E00288FBC /* Resources.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		D9389A0529E6CE460061C6CF /* SearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
 		D9389A0829E8049B0061C6CF /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		D946551B29E8772D0037108E /* UIImageView+Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Networking.swift"; sourceTree = "<group>"; };
+		D999653A29EB1A1E00288FBC /* Resources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resources.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 		D93899E629E6A8E80061C6CF /* Bibliotheque */ = {
 			isa = PBXGroup;
 			children = (
+				D98A947529EB19BF00E76A60 /* Helpers */,
 				D9389A0729E8047E0061C6CF /* Networking */,
 				D9389A0029E6C0140061C6CF /* Search */,
 				D93899E729E6A8E80061C6CF /* AppDelegate.swift */,
@@ -104,6 +107,14 @@
 				D946551B29E8772D0037108E /* UIImageView+Networking.swift */,
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		D98A947529EB19BF00E76A60 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				D999653A29EB1A1E00288FBC /* Resources.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -179,6 +190,7 @@
 				D9389A0629E6CE460061C6CF /* SearchResultCell.swift in Sources */,
 				D9389A0229E6C0FE0061C6CF /* SearchViewController.swift in Sources */,
 				D946551C29E8772D0037108E /* UIImageView+Networking.swift in Sources */,
+				D999653B29EB1A1E00288FBC /* Resources.swift in Sources */,
 				D9389A0929E8049B0061C6CF /* NetworkService.swift in Sources */,
 				D9389A0429E6CD360061C6CF /* SearchResultViewController.swift in Sources */,
 				D93899FD29E6B0AF0061C6CF /* UIViewController+Utils.swift in Sources */,

@@ -25,6 +25,7 @@ class SearchResultViewController: UIViewController {
         tableView.dataSource = self
         tableView.register(SearchResultCell.self, forCellReuseIdentifier: SearchResultCell.reuseID)
         tableView.rowHeight = SearchResultCell.rowHeight
+        tableView.backgroundColor = Resources.Color.backgroundBeige
         tableView.separatorStyle = .none
         
         view.addSubview(tableView)

@@ -30,7 +30,7 @@ class SearchResultCell: UITableViewCell {
     }
     
     private func setup() {
-        contentView.backgroundColor = UIColor(red: 244/255, green: 243/255, blue: 234/255, alpha: 1.0)
+        contentView.backgroundColor = Resources.Color.backgroundBeige
         
         cellView.translatesAutoresizingMaskIntoConstraints = false
         cellView.layer.cornerRadius = 14
@@ -49,14 +49,15 @@ class SearchResultCell: UITableViewCell {
         
         bookNameLabel.translatesAutoresizingMaskIntoConstraints = false
         bookNameLabel.font = .boldSystemFont(ofSize: 20)
-        bookNameLabel.textColor = UIColor(red: 51/255, green: 61/255, blue: 81/255, alpha: 1)
+        bookNameLabel.textColor = Resources.Color.textNavy
         
         authorLabel.translatesAutoresizingMaskIntoConstraints = false
         authorLabel.font = UIFont.preferredFont(forTextStyle: .callout)
         authorLabel.numberOfLines = 0
+        authorLabel.textColor = Resources.Color.textNavy
         
         chevronImageView.translatesAutoresizingMaskIntoConstraints = false
-        let chevronImage = UIImage(systemName: "chevron.right")!.withTintColor(UIColor(red: 51/255, green: 61/255, blue: 81/255, alpha: 1), renderingMode: .alwaysOriginal)
+        let chevronImage = UIImage(systemName: "chevron.right")!.withTintColor(Resources.Color.textNavy, renderingMode: .alwaysOriginal)
         chevronImageView.image = chevronImage
         chevronImageView.setContentHuggingPriority(.defaultHigh, for: .horizontal)
     }

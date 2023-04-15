@@ -17,6 +17,7 @@ class SearchResultCell: UITableViewCell {
     let stackView = UIStackView()
     let bookNameLabel = UILabel()
     let authorLabel = UILabel()
+    let chevronImageView = UIImageView()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -48,12 +49,16 @@ class SearchResultCell: UITableViewCell {
         
         bookNameLabel.translatesAutoresizingMaskIntoConstraints = false
         bookNameLabel.font = .boldSystemFont(ofSize: 20)
-//        bookNameLabel.numberOfLines = 0
         bookNameLabel.textColor = UIColor(red: 51/255, green: 61/255, blue: 81/255, alpha: 1)
         
         authorLabel.translatesAutoresizingMaskIntoConstraints = false
         authorLabel.font = UIFont.preferredFont(forTextStyle: .callout)
         authorLabel.numberOfLines = 0
+        
+        chevronImageView.translatesAutoresizingMaskIntoConstraints = false
+        let chevronImage = UIImage(systemName: "chevron.right")!.withTintColor(UIColor(red: 51/255, green: 61/255, blue: 81/255, alpha: 1), renderingMode: .alwaysOriginal)
+        chevronImageView.image = chevronImage
+        chevronImageView.setContentHuggingPriority(.defaultHigh, for: .horizontal)
     }
     
     private func layout() {
@@ -61,6 +66,7 @@ class SearchResultCell: UITableViewCell {
         stackView.addArrangedSubview(authorLabel)
         cellView.addSubview(bookCoverImageView)
         cellView.addSubview(stackView)
+        cellView.addSubview(chevronImageView)
         contentView.addSubview(cellView)
         
         NSLayoutConstraint.activate([
@@ -69,23 +75,17 @@ class SearchResultCell: UITableViewCell {
             cellView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             cellView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             
-            
             bookCoverImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             bookCoverImageView.leadingAnchor.constraint(equalTo: cellView.leadingAnchor, constant: 8),
             
             stackView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             stackView.leadingAnchor.constraint(equalTo: bookCoverImageView.trailingAnchor, constant: 16),
-            stackView.trailingAnchor.constraint(equalTo: cellView.trailingAnchor, constant: -8)
+            stackView.trailingAnchor.constraint(equalTo: chevronImageView.leadingAnchor, constant: -8),
+            
+            chevronImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            chevronImageView.trailingAnchor.constraint(equalTo: cellView.trailingAnchor, constant: -16)
         ])
     }
-    
-//    func configureWith(image: UIImage?, bookName: String, author: String) {
-//        if let image = image {
-//            bookCoverImageView.image = image
-//        }
-//        bookNameLabel.text = bookName
-//        authorLabel.text = author
-//    }
     
     func configureWith(bookName: String, author: String) {
         bookNameLabel.text = bookName

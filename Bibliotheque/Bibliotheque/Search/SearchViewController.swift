@@ -29,6 +29,7 @@ class SearchViewController: UIViewController {
         view.backgroundColor = UIColor(red: 244/255, green: 243/255, blue: 234/255, alpha: 1.0)
         title = "Search"
         navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.tintColor = UIColor(red: 211/255, green: 172/255, blue: 43/255, alpha: 1)
         
         setupSearchBar()
     }
@@ -36,6 +37,7 @@ class SearchViewController: UIViewController {
     private func setupSearchBar() {
         navigationItem.searchController = searchController
         searchController.searchBar.delegate = self
+        searchController.obscuresBackgroundDuringPresentation = false
     }
 }
 

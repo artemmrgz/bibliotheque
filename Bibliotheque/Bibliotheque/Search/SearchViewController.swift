@@ -12,9 +12,14 @@ class SearchViewController: UIViewController {
     let networkService = NetworkService()
     let searchController =  UISearchController(searchResultsController: SearchResultViewController())
     
+    
+    let scrollView = UIScrollView()
+    let contentView = UIView()
     let stackView = UIStackView()
     let fictionBestsellerView = BestsellerView(category: "Fiction")
     let nonfictionBestsellerView = BestsellerView(category: "Nonfiction")
+    let hcBestsellerView = BestsellerView(category: "Hardcover Nonfiction")
+    let anotherBestsellerView = BestsellerView(category: "Another")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,18 +49,39 @@ class SearchViewController: UIViewController {
     }
     
     private func setupBestsellerView() {
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        contentView.translatesAutoresizingMaskIntoConstraints = false
+        
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
         stackView.spacing = 24
         
         stackView.addArrangedSubview(fictionBestsellerView)
         stackView.addArrangedSubview(nonfictionBestsellerView)
-        view.addSubview(stackView)
+        stackView.addArrangedSubview(hcBestsellerView)
+        stackView.addArrangedSubview(anotherBestsellerView)
+        
+        contentView.addSubview(stackView)
+        scrollView.addSubview(contentView)
+        view.addSubview(scrollView)
         
         NSLayoutConstraint.activate([
-            stackView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: 16),
-            stackView.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
-            stackView.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
+            scrollView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
+            
+            contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+            contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+            contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
+            
+            stackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
+            stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            stackView.widthAnchor.constraint(equalTo: contentView.widthAnchor)
         ])
     }
 }

@@ -12,6 +12,10 @@ class SearchViewController: UIViewController {
     let networkService = NetworkService()
     let searchController =  UISearchController(searchResultsController: SearchResultViewController())
     
+    let stackView = UIStackView()
+    let fictionBestsellerView = BestsellerView(category: "Fiction")
+    let nonfictionBestsellerView = BestsellerView(category: "Nonfiction")
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -20,6 +24,7 @@ class SearchViewController: UIViewController {
         
         setupNavigationBar()
         setupSearchBar()
+        setupBestsellerView()
     }
     
     private func setupNavigationBar() {
@@ -36,6 +41,22 @@ class SearchViewController: UIViewController {
         navigationItem.searchController = searchController
         searchController.searchBar.delegate = self
         searchController.obscuresBackgroundDuringPresentation = false
+    }
+    
+    private func setupBestsellerView() {
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .vertical
+        stackView.spacing = 24
+        
+        stackView.addArrangedSubview(fictionBestsellerView)
+        stackView.addArrangedSubview(nonfictionBestsellerView)
+        view.addSubview(stackView)
+        
+        NSLayoutConstraint.activate([
+            stackView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: 16),
+            stackView.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
+            stackView.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
+        ])
     }
 }
 

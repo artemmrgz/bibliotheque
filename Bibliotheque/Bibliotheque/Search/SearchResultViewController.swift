@@ -11,6 +11,7 @@ class SearchResultViewController: UIViewController {
     
     var books: Books?
     let tableView = UITableView()
+    var bookDetails = BookDetailViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,5 +59,16 @@ extension SearchResultViewController: UITableViewDelegate, UITableViewDataSource
             // TODO: add placeholder image
         }
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let books = books else { return }
+        
+        let book = books.results[indexPath.row]
+        bookDetails.book = book
+        bookDetails.modalPresentationStyle = .fullScreen
+//        navigationController?.pushViewController(bookDetails, animated: true)
+        present(bookDetails, animated: false)
+        
     }
 }

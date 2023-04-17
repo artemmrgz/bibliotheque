@@ -21,6 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: windowScene)
         
         window?.rootViewController = MainViewController()
+//        window?.rootViewController = BookDetailViewController()
         window?.makeKeyAndVisible()
     }
 

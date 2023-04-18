@@ -19,7 +19,7 @@ class BookDetailViewController: UIViewController {
     let releaseDate = UILabel()
     let rating = UILabel()
     let bookDescription = UILabel()
-    
+
     let scrollView = UIScrollView()
     let stackView = UIStackView()
     
@@ -34,7 +34,7 @@ class BookDetailViewController: UIViewController {
             author.text = book.artistName
             genres.text = book.genres.joined(separator: ", ")
             releaseDate.text = book.releaseDate
-            bookDescription.text = book.description
+            bookDescription.attributedText = book.description.htmlAttributedString()
             floatingCoverView.coverUrl = book.artworkUrl100
         }
     }
@@ -48,29 +48,22 @@ class BookDetailViewController: UIViewController {
         navigationController?.navigationBar.standardAppearance = appearance
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
         
-        scrollView.delegate = self
-        style()
-        layout()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        let appearance = UINavigationBarAppearance()
-        appearance.configureWithTransparentBackground()
-        appearance.backgroundColor = Resources.Color.textNavy
-        navigationController?.navigationBar.standardAppearance = appearance
-        
         let TBappearance = UITabBarAppearance()
         TBappearance.backgroundColor = Resources.Color.backgroundBeige
         tabBarController?.tabBar.standardAppearance = TBappearance
         tabBarController?.tabBar.scrollEdgeAppearance = TBappearance
+       
+        navigationItem.largeTitleDisplayMode = .never
+        scrollView.delegate = self
+        style()
+        layout()
     }
     
     private func setupGradientBackground() -> CAGradientLayer {
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = view.bounds
         gradientLayer.colors = [Resources.Color.textNavy.cgColor, Resources.Color.backgroundBeige.cgColor]
-        gradientLayer.locations = [0.2, 0.6]
+        gradientLayer.locations = [0, 0.6]
         
         return gradientLayer
     }
@@ -80,11 +73,14 @@ class BookDetailViewController: UIViewController {
         
         bookTitle.translatesAutoresizingMaskIntoConstraints = false
         bookTitle.numberOfLines = 0
-        bookTitle.font = UIFont.systemFont(ofSize: 35)
+        bookTitle.font = UIFont.systemFont(ofSize: 40, weight: .heavy)
+        bookTitle.textColor = Resources.Color.secondaryAccentGray
+        bookTitle.textAlignment = .center
         
         author.translatesAutoresizingMaskIntoConstraints = false
         author.numberOfLines = 0
         author.font = UIFont.systemFont(ofSize: 25)
+        author.textAlignment = .center
         
         genres.translatesAutoresizingMaskIntoConstraints = false
         
@@ -114,6 +110,7 @@ class BookDetailViewController: UIViewController {
         stackView.addArrangedSubview(releaseDate)
         stackView.addArrangedSubview(rating)
         stackView.addArrangedSubview(bookDescription)
+        print(bookDescription)
         
         scrollView.addSubview(stackView)
         view.addSubview(scrollView)
@@ -124,14 +121,12 @@ class BookDetailViewController: UIViewController {
             scrollView.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor),
             scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            
+
             stackView.topAnchor.constraint(equalTo: scrollView.topAnchor),
             stackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
-            stackView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
-            stackView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
             stackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor, constant: -32),
             stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            
+
             floatingCoverView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),
             floatingCoverView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])

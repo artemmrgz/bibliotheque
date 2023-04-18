@@ -35,6 +35,7 @@ class MainViewController: UITabBarController {
     private func setupTabBar() {
         tabBar.tintColor = Resources.Color.accentYellow
         tabBar.unselectedItemTintColor = Resources.Color.textNavy
+        tabBar.barTintColor = Resources.Color.backgroundBeige
     }
 }
 

@@ -17,14 +17,8 @@ class SearchResultViewController: UIViewController {
         super.viewDidLoad()
         
         view.backgroundColor = Resources.Color.backgroundBeige
-        
-        let appearance = UINavigationBarAppearance()
-        appearance.configureWithTransparentBackground()
-        appearance.backgroundColor = Resources.Color.backgroundBeige
+        navigationItem.largeTitleDisplayMode = .never
 
-        navigationController?.navigationBar.standardAppearance = appearance
-        navigationController?.navigationBar.scrollEdgeAppearance = appearance
-        
         setupTable()
     }
     
@@ -41,8 +35,7 @@ class SearchResultViewController: UIViewController {
         view.addSubview(tableView)
         
         NSLayoutConstraint.activate([
-//            tableView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),
-            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            tableView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor),
             tableView.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor)
@@ -78,6 +71,5 @@ extension SearchResultViewController: UITableViewDelegate, UITableViewDataSource
         bookDetails.book = book
         bookDetails.scrollView.contentOffset.y = -52
         navigationController?.pushViewController(bookDetails, animated: true)
-        
     }
 }

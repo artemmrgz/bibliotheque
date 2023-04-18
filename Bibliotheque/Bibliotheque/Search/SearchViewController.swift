@@ -73,22 +73,47 @@ class SearchViewController: UIViewController {
     }
 }
 
+//extension SearchViewController: UISearchBarDelegate {
+//    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+//        let updatedText = searchText.replacingOccurrences(of: " ", with: "+")
+//
+//        timer?.invalidate()
+//        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: false, block: { _ in
+//            self.networkService.fetchBooks(containing: updatedText) { result in
+//                switch result {
+//                case .success(let books):
+//                    let vc = self.searchController.searchResultsController as? SearchResultViewController
+//                    vc?.books = books
+//                    vc?.tableView.reloadData()
+//                    guard let vc = vc else { return }
+//                    self.navigationController?.pushViewController(vc, animated: true)
+//                case .failure(let error):
+//                    print(error)
+//                }
+//            }
+//        })
+//    }
+//}
+
 extension SearchViewController: UISearchBarDelegate {
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let searchText = searchBar.text else { return }
+        
         let updatedText = searchText.replacingOccurrences(of: " ", with: "+")
         
-        timer?.invalidate()
-        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: false, block: { _ in
-            self.networkService.fetchBooks(containing: updatedText) { result in
-                switch result {
-                case .success(let books):
-                    let vc = self.searchController.searchResultsController as? SearchResultViewController
-                    vc?.books = books
-                    vc?.tableView.reloadData()
-                case .failure(let error):
-                    print(error)
-                }
+        networkService.fetchBooks(containing: updatedText) { result in
+            switch result {
+            case .success(let books):
+                let vc = self.searchController.searchResultsController as? SearchResultViewController
+                vc?.books = books
+                vc?.tableView.reloadData()
+                guard let vc = vc else { return }
+                self.navigationController?.pushViewController(vc, animated: true)
+            case .failure(let error):
+                print(error)
             }
-        })
+        }
     }
 }
+    

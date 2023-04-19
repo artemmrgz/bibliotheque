@@ -56,7 +56,7 @@ extension SearchResultViewController: UITableViewDelegate, UITableViewDataSource
         let cell = tableView.dequeueReusableCell(withIdentifier: SearchResultCell.reuseID, for: indexPath) as! SearchResultCell
         cell.configureWith(bookName: book.trackName, author: book.artistName)
         
-        if let imageLink = book.artworkUrl60 {
+        if let imageLink = book.artworkUrl100 {
             cell.bookCoverImageView.downloaded(from: imageLink)
         } else {
             // TODO: add placeholder image

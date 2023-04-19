@@ -76,8 +76,10 @@ class SearchResultCell: UITableViewCell {
             cellView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             cellView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             
-            bookCoverImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            bookCoverImageView.topAnchor.constraint(equalTo: cellView.topAnchor, constant: 4),
+            bookCoverImageView.bottomAnchor.constraint(equalTo: cellView.bottomAnchor, constant: -4),
             bookCoverImageView.leadingAnchor.constraint(equalTo: cellView.leadingAnchor, constant: 8),
+            bookCoverImageView.widthAnchor.constraint(equalTo: bookCoverImageView.heightAnchor, multiplier: 0.65),
             
             stackView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             stackView.leadingAnchor.constraint(equalTo: bookCoverImageView.trailingAnchor, constant: 16),

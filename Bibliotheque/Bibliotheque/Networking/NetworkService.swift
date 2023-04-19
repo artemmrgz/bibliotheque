@@ -18,7 +18,6 @@ struct Book: Codable {
     let genres: [String]
     let description: String
     let releaseDate: String
-    let artworkUrl60: String?
     let artworkUrl100: String?
     let averageUserRating: Float?
 }

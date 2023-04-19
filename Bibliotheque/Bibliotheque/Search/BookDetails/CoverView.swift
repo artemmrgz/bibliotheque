@@ -38,6 +38,9 @@ class CoverView: UIView {
     private func layout() {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
+        imageView.layer.shadowColor = UIColor.black.cgColor
+        imageView.layer.shadowRadius = 7.0
+        imageView.layer.shadowOpacity = 0.5
         addSubview(imageView)
         
         widthConstraint = imageView.widthAnchor.constraint(equalToConstant: 200)

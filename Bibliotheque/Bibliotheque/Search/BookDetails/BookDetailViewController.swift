@@ -13,12 +13,14 @@ class BookDetailViewController: UIViewController {
     let floatingCoverView = CoverView()
     
     let bookTitle = UILabel()
-    let titleLabel = UILabel()
     let author = UILabel()
     let genres = UILabel()
     let releaseDate = UILabel()
     let rating = UILabel()
     let bookDescription = UILabel()
+   
+    let topUnderlineView = UnderlineView(color: Resources.Color.textNavy)
+    let bottomUnderlineView = UnderlineView(color: Resources.Color.textNavy)
 
     let scrollView = UIScrollView()
     let stackView = UIStackView()
@@ -29,13 +31,16 @@ class BookDetailViewController: UIViewController {
             if let userRating = book.averageUserRating {
                 rating.text = String(describing: userRating)
             }
-            titleLabel.text = book.trackName
             bookTitle.text = book.trackName
             author.text = book.artistName
             genres.text = book.genres.joined(separator: ", ")
-            releaseDate.text = book.releaseDate
             bookDescription.attributedText = book.description.htmlAttributedString()
-            floatingCoverView.coverUrl = book.artworkUrl100
+            
+            let date = book.releaseDate.components(separatedBy: "T")[0]
+            releaseDate.text = date
+            
+            let newURL = book.artworkUrl100?.replacingOccurrences(of: "100x100", with: "600x600")
+            floatingCoverView.coverUrl = newURL
         }
     }
     
@@ -74,7 +79,7 @@ class BookDetailViewController: UIViewController {
         bookTitle.translatesAutoresizingMaskIntoConstraints = false
         bookTitle.numberOfLines = 0
         bookTitle.font = UIFont.systemFont(ofSize: 40, weight: .heavy)
-        bookTitle.textColor = Resources.Color.secondaryAccentGray
+        bookTitle.textColor = UIColor.darkGray
         bookTitle.textAlignment = .center
         
         author.translatesAutoresizingMaskIntoConstraints = false
@@ -107,10 +112,12 @@ class BookDetailViewController: UIViewController {
         stackView.addArrangedSubview(coverPlaceholderView)
         stackView.addArrangedSubview(bookTitle)
         stackView.addArrangedSubview(author)
+        stackView.addArrangedSubview(topUnderlineView)
+        stackView.addArrangedSubview(genres)
         stackView.addArrangedSubview(releaseDate)
         stackView.addArrangedSubview(rating)
+        stackView.addArrangedSubview(bottomUnderlineView)
         stackView.addArrangedSubview(bookDescription)
-        print(bookDescription)
         
         scrollView.addSubview(stackView)
         view.addSubview(scrollView)
@@ -128,7 +135,7 @@ class BookDetailViewController: UIViewController {
             stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
 
             floatingCoverView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),
-            floatingCoverView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+            floatingCoverView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
         ])
     }
 }
@@ -140,7 +147,7 @@ extension BookDetailViewController: UIScrollViewDelegate {
         let y = scrollView.contentOffset.y
 
         if y > 230 {
-            navigationItem.title = titleLabel.text
+            navigationItem.title = bookTitle.text
         } else {
             navigationItem.title = ""
         }

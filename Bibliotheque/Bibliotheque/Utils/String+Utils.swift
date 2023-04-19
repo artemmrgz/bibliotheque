@@ -8,15 +8,48 @@
 import UIKit
 
 extension String {
+//    func htmlAttributedString() -> NSAttributedString? {
+//        guard let data = self.data(using: .utf8) else {
+//            return nil
+//        }
+//
+//        return try? NSAttributedString(
+//            data: data,
+//            options: [.documentType: NSAttributedString.DocumentType.html],
+//            documentAttributes: nil
+//        )
+//    }
+    
     func htmlAttributedString() -> NSAttributedString? {
-        guard let data = self.data(using: .utf8) else {
+        let htmlTemplate = """
+        <!doctype html>
+        <html>
+          <head>
+            <style>
+              body {
+                font-family: -apple-system;
+                font-size: 20px;
+              }
+            </style>
+          </head>
+          <body>
+            \(self)
+          </body>
+        </html>
+        """
+
+        guard let data = htmlTemplate.data(using: .utf8) else {
             return nil
         }
 
-        return try? NSAttributedString(
+        guard let attributedString = try? NSAttributedString(
             data: data,
             options: [.documentType: NSAttributedString.DocumentType.html],
             documentAttributes: nil
-        )
+            ) else {
+            return nil
+        }
+
+        return attributedString
     }
 }

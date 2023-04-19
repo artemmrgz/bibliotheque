@@ -18,6 +18,7 @@ class BookDetailViewController: UIViewController {
     let releaseDate = UILabel()
     let rating = UILabel()
     let bookDescription = UILabel()
+    let addButton  = CustomButton(defaultTitle: "Add to Read List", selectedTitle: "✓ Added")
    
     let topUnderlineView = UnderlineView(color: Resources.Color.textNavy)
     let bottomUnderlineView = UnderlineView(color: Resources.Color.textNavy)
@@ -29,14 +30,14 @@ class BookDetailViewController: UIViewController {
         didSet {
             guard let book = book else { return }
             if let userRating = book.averageUserRating {
-                rating.text = String(describing: userRating)
+                rating.text = "Average User Rating\n" + String(describing: userRating)
             }
             bookTitle.text = book.trackName
             author.text = book.artistName
-            genres.text = book.genres.joined(separator: ", ")
+            genres.text = "Genres\n" + book.genres.joined(separator: ", ")
             bookDescription.attributedText = book.description.htmlAttributedString()
             
-            let date = book.releaseDate.components(separatedBy: "T")[0]
+            let date = "Release Date\n" + book.releaseDate.components(separatedBy: "T")[0]
             releaseDate.text = date
             
             let newURL = book.artworkUrl100?.replacingOccurrences(of: "100x100", with: "600x600")
@@ -84,18 +85,26 @@ class BookDetailViewController: UIViewController {
         
         author.translatesAutoresizingMaskIntoConstraints = false
         author.numberOfLines = 0
-        author.font = UIFont.systemFont(ofSize: 25)
+        author.font = UIFont.systemFont(ofSize: 20)
         author.textAlignment = .center
         
         genres.translatesAutoresizingMaskIntoConstraints = false
+        genres.textAlignment = .center
+        genres.numberOfLines = 0
         
         releaseDate.translatesAutoresizingMaskIntoConstraints = false
+        releaseDate.textAlignment = .center
+        releaseDate.numberOfLines = 0
         
         rating.translatesAutoresizingMaskIntoConstraints = false
+        rating.textAlignment = .center
+        rating.numberOfLines = 0
         
         bookDescription.translatesAutoresizingMaskIntoConstraints = false
         bookDescription.numberOfLines = 0
         bookDescription.font = UIFont.systemFont(ofSize: 20)
+        
+        addButton.addTarget(self, action: #selector(addButtonTapped), for: .touchUpInside)
         
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
@@ -117,6 +126,7 @@ class BookDetailViewController: UIViewController {
         stackView.addArrangedSubview(releaseDate)
         stackView.addArrangedSubview(rating)
         stackView.addArrangedSubview(bottomUnderlineView)
+        stackView.addArrangedSubview(addButton)
         stackView.addArrangedSubview(bookDescription)
         
         scrollView.addSubview(stackView)
@@ -136,6 +146,8 @@ class BookDetailViewController: UIViewController {
 
             floatingCoverView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),
             floatingCoverView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            
+            addButton.heightAnchor.constraint(equalToConstant: 40)
         ])
     }
 }
@@ -156,6 +168,19 @@ extension BookDetailViewController: UIScrollViewDelegate {
             scrollView.backgroundColor = Resources.Color.backgroundBeige
         } else {
             scrollView.backgroundColor = Resources.Color.textNavy
+        }
+    }
+}
+
+extension BookDetailViewController {
+    @objc func addButtonTapped(_ sender: UIButton) {
+        guard let sender = sender as? CustomButton else { return }
+        sender.isSelectedState.toggle()
+        
+        if sender.isSelectedState {
+            addButton.setSelectedStyle()
+        } else {
+            addButton.setDefaultStyle()
         }
     }
 }

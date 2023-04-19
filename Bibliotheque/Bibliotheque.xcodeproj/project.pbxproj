@@ -22,6 +22,7 @@
 		D94A4BC229ED811E00E98C5D /* CoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94A4BC129ED811E00E98C5D /* CoverView.swift */; };
 		D94A4BC729EF070400E98C5D /* String+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94A4BC629EF070400E98C5D /* String+Utils.swift */; };
 		D94A4BC929EFFD3B00E98C5D /* UnderlineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94A4BC829EFFD3B00E98C5D /* UnderlineView.swift */; };
+		D94A4BCB29F0240400E98C5D /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94A4BCA29F0240400E98C5D /* CustomButton.swift */; };
 		D999653B29EB1A1E00288FBC /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = D999653A29EB1A1E00288FBC /* Resources.swift */; };
 		D9C6C10729EC17F10074C975 /* BestsellerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C6C10629EC17F10074C975 /* BestsellerView.swift */; };
 /* End PBXBuildFile section */
@@ -44,6 +45,7 @@
 		D94A4BC129ED811E00E98C5D /* CoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverView.swift; sourceTree = "<group>"; };
 		D94A4BC629EF070400E98C5D /* String+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Utils.swift"; sourceTree = "<group>"; };
 		D94A4BC829EFFD3B00E98C5D /* UnderlineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderlineView.swift; sourceTree = "<group>"; };
+		D94A4BCA29F0240400E98C5D /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		D999653A29EB1A1E00288FBC /* Resources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resources.swift; sourceTree = "<group>"; };
 		D9C6C10629EC17F10074C975 /* BestsellerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestsellerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -128,6 +130,7 @@
 				D94A4BC129ED811E00E98C5D /* CoverView.swift */,
 				D94A4BBF29ED525200E98C5D /* BookDetailViewController.swift */,
 				D94A4BC829EFFD3B00E98C5D /* UnderlineView.swift */,
+				D94A4BCA29F0240400E98C5D /* CustomButton.swift */,
 			);
 			path = BookDetails;
 			sourceTree = "<group>";
@@ -212,6 +215,7 @@
 			files = (
 				D9C6C10729EC17F10074C975 /* BestsellerView.swift in Sources */,
 				D9389A0629E6CE460061C6CF /* SearchResultCell.swift in Sources */,
+				D94A4BCB29F0240400E98C5D /* CustomButton.swift in Sources */,
 				D94A4BC929EFFD3B00E98C5D /* UnderlineView.swift in Sources */,
 				D9389A0229E6C0FE0061C6CF /* SearchViewController.swift in Sources */,
 				D946551C29E8772D0037108E /* UIImageView+Networking.swift in Sources */,

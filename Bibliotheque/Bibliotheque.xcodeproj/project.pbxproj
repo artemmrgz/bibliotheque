@@ -23,6 +23,10 @@
 		D94A4BC729EF070400E98C5D /* String+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94A4BC629EF070400E98C5D /* String+Utils.swift */; };
 		D94A4BC929EFFD3B00E98C5D /* UnderlineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94A4BC829EFFD3B00E98C5D /* UnderlineView.swift */; };
 		D94A4BCB29F0240400E98C5D /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94A4BCA29F0240400E98C5D /* CustomButton.swift */; };
+		D94A4BCE29F032FD00E98C5D /* ReadingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94A4BCD29F032FD00E98C5D /* ReadingListViewController.swift */; };
+		D94A4BD029F0555200E98C5D /* BooksListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94A4BCF29F0555200E98C5D /* BooksListViewController.swift */; };
+		D94A4BD229F0567900E98C5D /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94A4BD129F0567900E98C5D /* CustomCell.swift */; };
+		D94A4BD429F05E9900E98C5D /* ReadingListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94A4BD329F05E9900E98C5D /* ReadingListCell.swift */; };
 		D999653B29EB1A1E00288FBC /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = D999653A29EB1A1E00288FBC /* Resources.swift */; };
 		D9C6C10729EC17F10074C975 /* BestsellerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C6C10629EC17F10074C975 /* BestsellerView.swift */; };
 /* End PBXBuildFile section */
@@ -46,6 +50,10 @@
 		D94A4BC629EF070400E98C5D /* String+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Utils.swift"; sourceTree = "<group>"; };
 		D94A4BC829EFFD3B00E98C5D /* UnderlineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderlineView.swift; sourceTree = "<group>"; };
 		D94A4BCA29F0240400E98C5D /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		D94A4BCD29F032FD00E98C5D /* ReadingListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingListViewController.swift; sourceTree = "<group>"; };
+		D94A4BCF29F0555200E98C5D /* BooksListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksListViewController.swift; sourceTree = "<group>"; };
+		D94A4BD129F0567900E98C5D /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
+		D94A4BD329F05E9900E98C5D /* ReadingListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingListCell.swift; sourceTree = "<group>"; };
 		D999653A29EB1A1E00288FBC /* Resources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resources.swift; sourceTree = "<group>"; };
 		D9C6C10629EC17F10074C975 /* BestsellerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestsellerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -80,6 +88,7 @@
 		D93899E629E6A8E80061C6CF /* Bibliotheque */ = {
 			isa = PBXGroup;
 			children = (
+				D94A4BCC29F0327300E98C5D /* ReadingList */,
 				D98A947529EB19BF00E76A60 /* Helpers */,
 				D9389A0729E8047E0061C6CF /* Networking */,
 				D9389A0029E6C0140061C6CF /* Search */,
@@ -90,6 +99,8 @@
 				D93899F029E6A8E80061C6CF /* Assets.xcassets */,
 				D93899F229E6A8E80061C6CF /* LaunchScreen.storyboard */,
 				D93899F529E6A8E80061C6CF /* Info.plist */,
+				D94A4BCF29F0555200E98C5D /* BooksListViewController.swift */,
+				D94A4BD129F0567900E98C5D /* CustomCell.swift */,
 			);
 			path = Bibliotheque;
 			sourceTree = "<group>";
@@ -133,6 +144,15 @@
 				D94A4BCA29F0240400E98C5D /* CustomButton.swift */,
 			);
 			path = BookDetails;
+			sourceTree = "<group>";
+		};
+		D94A4BCC29F0327300E98C5D /* ReadingList */ = {
+			isa = PBXGroup;
+			children = (
+				D94A4BCD29F032FD00E98C5D /* ReadingListViewController.swift */,
+				D94A4BD329F05E9900E98C5D /* ReadingListCell.swift */,
+			);
+			path = ReadingList;
 			sourceTree = "<group>";
 		};
 		D98A947529EB19BF00E76A60 /* Helpers */ = {
@@ -218,9 +238,12 @@
 				D94A4BCB29F0240400E98C5D /* CustomButton.swift in Sources */,
 				D94A4BC929EFFD3B00E98C5D /* UnderlineView.swift in Sources */,
 				D9389A0229E6C0FE0061C6CF /* SearchViewController.swift in Sources */,
+				D94A4BCE29F032FD00E98C5D /* ReadingListViewController.swift in Sources */,
 				D946551C29E8772D0037108E /* UIImageView+Networking.swift in Sources */,
 				D999653B29EB1A1E00288FBC /* Resources.swift in Sources */,
+				D94A4BD229F0567900E98C5D /* CustomCell.swift in Sources */,
 				D9389A0929E8049B0061C6CF /* NetworkService.swift in Sources */,
+				D94A4BD029F0555200E98C5D /* BooksListViewController.swift in Sources */,
 				D9389A0429E6CD360061C6CF /* SearchResultViewController.swift in Sources */,
 				D93899FD29E6B0AF0061C6CF /* UIViewController+Utils.swift in Sources */,
 				D93899EC29E6A8E80061C6CF /* MainViewController.swift in Sources */,
@@ -228,6 +251,7 @@
 				D94A4BC029ED525200E98C5D /* BookDetailViewController.swift in Sources */,
 				D94A4BC229ED811E00E98C5D /* CoverView.swift in Sources */,
 				D94A4BC729EF070400E98C5D /* String+Utils.swift in Sources */,
+				D94A4BD429F05E9900E98C5D /* ReadingListCell.swift in Sources */,
 				D93899EA29E6A8E80061C6CF /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -39,13 +39,6 @@ class MainViewController: UITabBarController {
     }
 }
 
-class ReadingListViewController: UIViewController {
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .systemGreen
-    }
-}
-
 class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()

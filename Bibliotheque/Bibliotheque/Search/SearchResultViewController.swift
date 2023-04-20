@@ -7,23 +7,27 @@
 
 import UIKit
 
-class SearchResultViewController: BooksListViewController, CellRegisterable, DataSourceable {
-
+class SearchResultViewController: BooksListViewController {
+    
+    var books: Books?
+    let bookDetails = BookDetailsViewController()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        registerCustomCell()
-        setDataSource()
+        
+        setup()
     }
-
-    func registerCustomCell() {
+    
+    func setup() {
         tableView.register(SearchResultCell.self, forCellReuseIdentifier: SearchResultCell.reuseID)
         tableView.rowHeight = SearchResultCell.rowHeight
-    }
-
-    func setDataSource() {
+        
+        tableView.delegate = self
         tableView.dataSource = self
     }
+}
+
+extension SearchResultViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let books = books else { return 0}
@@ -43,5 +47,14 @@ class SearchResultViewController: BooksListViewController, CellRegisterable, Dat
             // TODO: add placeholder image
         }
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let books = books else { return }
+
+        let book = books.results[indexPath.row]
+        bookDetails.book = book
+        bookDetails.scrollView.contentOffset.y = -52
+        navigationController?.pushViewController(bookDetails, animated: true)
     }
 }

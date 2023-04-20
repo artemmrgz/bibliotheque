@@ -20,6 +20,19 @@ struct Book: Codable {
     let releaseDate: String
     let artworkUrl100: String?
     let averageUserRating: Float?
+    
+    var displayableGenres: String {
+        return genres.joined(separator: ", ")
+    }
+    
+    var displayableReleaseDate: String {
+        return releaseDate.components(separatedBy: "T")[0]
+    }
+    
+    var displayableRating: String? {
+        guard let userRating = averageUserRating else { return nil}
+        return String(describing: userRating)
+    }
 }
 
 struct Books: Codable {

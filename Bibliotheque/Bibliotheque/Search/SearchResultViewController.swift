@@ -10,17 +10,9 @@ import UIKit
 class SearchResultViewController: BooksListViewController {
     
     var books: Books?
-    let bookDetails = BookDetailsViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        setup()
-    }
-    
-    func setup() {
-        tableView.register(SearchResultCell.self, forCellReuseIdentifier: SearchResultCell.reuseID)
-        tableView.rowHeight = SearchResultCell.rowHeight
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -37,8 +29,8 @@ extension SearchResultViewController: UITableViewDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let books = books else { return UITableViewCell() }
         let book = books.results[indexPath.row]
-
-        let cell = tableView.dequeueReusableCell(withIdentifier: SearchResultCell.reuseID, for: indexPath) as! SearchResultCell
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: CustomCell.reuseID, for: indexPath) as! CustomCell
         cell.configureWith(bookName: book.trackName, author: book.artistName)
 
         if let imageLink = book.artworkUrl100 {
@@ -53,6 +45,8 @@ extension SearchResultViewController: UITableViewDelegate, UITableViewDataSource
         guard let books = books else { return }
 
         let book = books.results[indexPath.row]
+        let bookDetails = BookDetailsViewController()
+        
         bookDetails.book = book
         bookDetails.scrollView.contentOffset.y = -52
         navigationController?.pushViewController(bookDetails, animated: true)

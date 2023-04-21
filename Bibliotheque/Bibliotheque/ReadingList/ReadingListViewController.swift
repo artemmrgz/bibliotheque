@@ -8,22 +8,15 @@
 import UIKit
 
 class ReadingListViewController: BooksListViewController {
-    var savedBooks = [BookEntity]()
-    let bookDetails = SavedBookDetailsViewController()
     
+    var savedBooks = [BookEntity]()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setup()
-        fetchBooks()
-    }
-    
-    func setup() {
-        tableView.register(ReadingListCell.self, forCellReuseIdentifier: ReadingListCell.reuseID)
-        tableView.rowHeight = ReadingListCell.rowHeight
-        
         tableView.delegate = self
         tableView.dataSource = self
+        fetchBooks()
     }
     
     func fetchBooks() {
@@ -48,17 +41,12 @@ extension ReadingListViewController: UITableViewDelegate, UITableViewDataSource 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let book = savedBooks[indexPath.row]
 
-        let cell = tableView.dequeueReusableCell(withIdentifier: ReadingListCell.reuseID, for: indexPath) as! ReadingListCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: CustomCell.reuseID, for: indexPath) as! CustomCell
         cell.configureWith(bookName: book.trackName!, author: book.artistName!)
-        
-        cell.deleteTapped = { [weak self] in
-            let bookName = book.trackName!
-            CoreDataManager.shared.deleteBook(withName: bookName)
-            
-            self?.savedBooks.remove(at: indexPath.row)
-            self?.tableView.reloadData()
+        if let imageData = book.imageData {
+            cell.bookCoverImageView.image = UIImage(data: imageData)
         }
-
+        
         return cell
     }
     
@@ -66,6 +54,8 @@ extension ReadingListViewController: UITableViewDelegate, UITableViewDataSource 
         guard !savedBooks.isEmpty else { return }
         
         let book = savedBooks[indexPath.row]
+        
+        let bookDetails = SavedBookDetailsViewController()
         bookDetails.savedBook = book
         bookDetails.scrollView.contentOffset.y = -52
         navigationController?.pushViewController(bookDetails, animated: true)

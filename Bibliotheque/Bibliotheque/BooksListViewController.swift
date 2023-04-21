@@ -22,6 +22,8 @@ class BooksListViewController: UIViewController {
 
     private func setupTable() {
         tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.register(CustomCell.self, forCellReuseIdentifier: CustomCell.reuseID)
+        tableView.rowHeight = CustomCell.rowHeight
         
         tableView.backgroundColor = Resources.Color.backgroundBeige
         tableView.separatorStyle = .none

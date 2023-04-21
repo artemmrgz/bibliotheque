@@ -15,6 +15,7 @@ class CustomCell: UITableViewCell {
     }
     
     let cellView = UIView()
+    let bookCoverImageView = UIImageView()
     let stackView = UIStackView()
     let bookNameLabel = UILabel()
     let authorLabel = UILabel()
@@ -43,6 +44,12 @@ class CustomCell: UITableViewCell {
         stackView.spacing = 8
         stackView.setContentHuggingPriority(.defaultLow, for: .horizontal)
         
+        bookCoverImageView.translatesAutoresizingMaskIntoConstraints = false
+        bookCoverImageView.layer.cornerRadius = 8
+        bookCoverImageView.clipsToBounds = true
+        bookCoverImageView.contentMode = .scaleAspectFill
+        bookCoverImageView.setContentHuggingPriority(.defaultHigh, for: .horizontal)
+        
         bookNameLabel.translatesAutoresizingMaskIntoConstraints = false
         bookNameLabel.font = .boldSystemFont(ofSize: 20)
         bookNameLabel.textColor = Resources.Color.textNavy
@@ -61,6 +68,7 @@ class CustomCell: UITableViewCell {
     private func layout() {
         stackView.addArrangedSubview(bookNameLabel)
         stackView.addArrangedSubview(authorLabel)
+        cellView.addSubview(bookCoverImageView)
         cellView.addSubview(stackView)
         cellView.addSubview(chevronImageView)
         contentView.addSubview(cellView)
@@ -70,6 +78,12 @@ class CustomCell: UITableViewCell {
             cellView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -4),
             cellView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             cellView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            
+            bookCoverImageView.topAnchor.constraint(equalTo: cellView.topAnchor, constant: 4),
+            bookCoverImageView.bottomAnchor.constraint(equalTo: cellView.bottomAnchor, constant: -4),
+            bookCoverImageView.leadingAnchor.constraint(equalTo: cellView.leadingAnchor, constant: 8),
+            bookCoverImageView.trailingAnchor.constraint(equalTo: stackView.leadingAnchor, constant: -16),
+            bookCoverImageView.widthAnchor.constraint(equalTo: bookCoverImageView.heightAnchor, multiplier: 0.65),
             
             stackView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             stackView.trailingAnchor.constraint(equalTo: chevronImageView.leadingAnchor, constant: -8),

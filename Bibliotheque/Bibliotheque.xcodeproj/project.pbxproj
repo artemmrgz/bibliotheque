@@ -15,7 +15,6 @@
 		D93899FD29E6B0AF0061C6CF /* UIViewController+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93899FC29E6B0AF0061C6CF /* UIViewController+Utils.swift */; };
 		D9389A0229E6C0FE0061C6CF /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9389A0129E6C0FE0061C6CF /* SearchViewController.swift */; };
 		D9389A0429E6CD360061C6CF /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9389A0329E6CD360061C6CF /* SearchResultViewController.swift */; };
-		D9389A0629E6CE460061C6CF /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9389A0529E6CE460061C6CF /* SearchResultCell.swift */; };
 		D9389A0929E8049B0061C6CF /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9389A0829E8049B0061C6CF /* NetworkService.swift */; };
 		D946551C29E8772D0037108E /* UIImageView+Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = D946551B29E8772D0037108E /* UIImageView+Networking.swift */; };
 		D94A4BC029ED525200E98C5D /* BookDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94A4BBF29ED525200E98C5D /* BookDetailsViewController.swift */; };
@@ -26,7 +25,6 @@
 		D94A4BCE29F032FD00E98C5D /* ReadingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94A4BCD29F032FD00E98C5D /* ReadingListViewController.swift */; };
 		D94A4BD029F0555200E98C5D /* BooksListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94A4BCF29F0555200E98C5D /* BooksListViewController.swift */; };
 		D94A4BD229F0567900E98C5D /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94A4BD129F0567900E98C5D /* CustomCell.swift */; };
-		D94A4BD429F05E9900E98C5D /* ReadingListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94A4BD329F05E9900E98C5D /* ReadingListCell.swift */; };
 		D94A4BD729F1584000E98C5D /* Bibliotheque.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D94A4BD529F1584000E98C5D /* Bibliotheque.xcdatamodeld */; };
 		D94A4BD929F1597A00E98C5D /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94A4BD829F1597A00E98C5D /* CoreDataManager.swift */; };
 		D96CBBB229F17966006CB1EE /* BookEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96CBBB029F17966006CB1EE /* BookEntity+CoreDataClass.swift */; };
@@ -47,7 +45,6 @@
 		D93899FC29E6B0AF0061C6CF /* UIViewController+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Utils.swift"; sourceTree = "<group>"; };
 		D9389A0129E6C0FE0061C6CF /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		D9389A0329E6CD360061C6CF /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
-		D9389A0529E6CE460061C6CF /* SearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
 		D9389A0829E8049B0061C6CF /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		D946551B29E8772D0037108E /* UIImageView+Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Networking.swift"; sourceTree = "<group>"; };
 		D94A4BBF29ED525200E98C5D /* BookDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailsViewController.swift; sourceTree = "<group>"; };
@@ -58,7 +55,6 @@
 		D94A4BCD29F032FD00E98C5D /* ReadingListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingListViewController.swift; sourceTree = "<group>"; };
 		D94A4BCF29F0555200E98C5D /* BooksListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksListViewController.swift; sourceTree = "<group>"; };
 		D94A4BD129F0567900E98C5D /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
-		D94A4BD329F05E9900E98C5D /* ReadingListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingListCell.swift; sourceTree = "<group>"; };
 		D94A4BD629F1584000E98C5D /* Bibliotheque.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Bibliotheque.xcdatamodel; sourceTree = "<group>"; };
 		D94A4BD829F1597A00E98C5D /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		D96CBBB029F17966006CB1EE /* BookEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BookEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -131,7 +127,6 @@
 				D9C6C10629EC17F10074C975 /* BestsellerView.swift */,
 				D9389A0129E6C0FE0061C6CF /* SearchViewController.swift */,
 				D9389A0329E6CD360061C6CF /* SearchResultViewController.swift */,
-				D9389A0529E6CE460061C6CF /* SearchResultCell.swift */,
 				D94A4BC329EDA94C00E98C5D /* BookDetails */,
 			);
 			path = Search;
@@ -161,7 +156,6 @@
 			isa = PBXGroup;
 			children = (
 				D94A4BCD29F032FD00E98C5D /* ReadingListViewController.swift */,
-				D94A4BD329F05E9900E98C5D /* ReadingListCell.swift */,
 				D96CBBB629F19C9A006CB1EE /* SavedBookDetailsViewController.swift */,
 			);
 			path = ReadingList;
@@ -257,7 +251,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D9C6C10729EC17F10074C975 /* BestsellerView.swift in Sources */,
-				D9389A0629E6CE460061C6CF /* SearchResultCell.swift in Sources */,
 				D96CBBB729F19C9A006CB1EE /* SavedBookDetailsViewController.swift in Sources */,
 				D94A4BCB29F0240400E98C5D /* CustomButton.swift in Sources */,
 				D94A4BC929EFFD3B00E98C5D /* UnderlineView.swift in Sources */,
@@ -277,7 +270,6 @@
 				D94A4BC029ED525200E98C5D /* BookDetailsViewController.swift in Sources */,
 				D94A4BC229ED811E00E98C5D /* CoverView.swift in Sources */,
 				D94A4BC729EF070400E98C5D /* String+Utils.swift in Sources */,
-				D94A4BD429F05E9900E98C5D /* ReadingListCell.swift in Sources */,
 				D93899EA29E6A8E80061C6CF /* SceneDelegate.swift in Sources */,
 				D96CBBB229F17966006CB1EE /* BookEntity+CoreDataClass.swift in Sources */,
 				D94A4BD729F1584000E98C5D /* Bibliotheque.xcdatamodeld in Sources */,

@@ -18,11 +18,11 @@ class MainViewController: UITabBarController {
     
     private func setupViews() {
         let searchVC = SearchViewController()
-        let listVC = ReadingListViewController()
+        let listVC = SavedBooksViewController()
         let profileVC = ProfileViewController()
         
         searchVC.setTabBarImage(imageName: "magnifyingglass", title: "Search", tag: 0)
-        listVC.setTabBarImage(imageName: "list.bullet", title: "Reading List", tag: 1)
+        listVC.setTabBarImage(imageName: "list.bullet", title: "Saved", tag: 1)
         profileVC.setTabBarImage(imageName: "person.crop.circle", title: "Profile", tag: 2)
         
         let searchNC = UINavigationController(rootViewController: searchVC)

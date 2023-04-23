@@ -1,5 +1,5 @@
 //
-//  BookDetailViewController.swift
+//  SearchBookDetailsViewController.swift
 //  Bibliotheque
 //
 //  Created by Artem Marhaza on 17/04/2023.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class BookDetailsViewController: DetailsVC {
+class SearchBookDetailsViewController: BookDetailsViewController {
     var book: Book? {
         didSet {
             guard let book = book else { return }
@@ -55,7 +55,9 @@ class BookDetailsViewController: DetailsVC {
     func setButtonStyle() {
         guard let bookName = book?.trackName else { return }
         let book = CoreDataManager.shared.fetchBook(withName: bookName)
-        if book != nil {
+        if book == nil {
+            addButton.setDefaultStyle()
+        } else {
             addButton.isSelectedState = true
             addButton.setSelectedStyle()
         }

@@ -37,7 +37,6 @@ struct CoreDataManager {
         
         do {
             try context.save()
-            print("saved!")
             return bookEntity
         } catch let createError {
             print("Failed to create: \(createError)")

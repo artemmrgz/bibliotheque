@@ -28,7 +28,6 @@ class CustomButton: UIButton {
     
     private func style() {
         translatesAutoresizingMaskIntoConstraints = false
-        setDefaultStyle()
         layer.shadowColor = UIColor.darkGray.cgColor
         layer.shadowRadius = 5
         layer.shadowOpacity = 0.7

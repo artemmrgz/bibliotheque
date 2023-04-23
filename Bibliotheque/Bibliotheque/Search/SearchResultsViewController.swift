@@ -1,5 +1,5 @@
 //
-//  SearchResultViewController.swift
+//  SearchResultsViewController.swift
 //  Bibliotheque
 //
 //  Created by Artem Marhaza on 12/04/2023.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SearchResultViewController: BooksListViewController {
+class SearchResultsViewController: BooksListViewController {
     
     var books: Books?
     
@@ -19,7 +19,7 @@ class SearchResultViewController: BooksListViewController {
     }
 }
 
-extension SearchResultViewController: UITableViewDelegate, UITableViewDataSource {
+extension SearchResultsViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let books = books else { return 0}
@@ -45,7 +45,7 @@ extension SearchResultViewController: UITableViewDelegate, UITableViewDataSource
         guard let books = books else { return }
 
         let book = books.results[indexPath.row]
-        let bookDetails = BookDetailsViewController()
+        let bookDetails = SearchBookDetailsViewController()
         
         bookDetails.book = book
         bookDetails.scrollView.contentOffset.y = -52

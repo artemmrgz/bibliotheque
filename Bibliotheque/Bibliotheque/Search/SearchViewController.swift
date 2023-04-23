@@ -10,7 +10,7 @@ import UIKit
 class SearchViewController: UIViewController {
     var timer: Timer?
     let networkService = NetworkService()
-    let searchController =  UISearchController(searchResultsController: SearchResultViewController())
+    let searchController =  UISearchController(searchResultsController: SearchResultsViewController())
     
     
     let scrollView = UIScrollView()
@@ -83,7 +83,7 @@ extension SearchViewController: UISearchBarDelegate {
         networkService.fetchBooks(containing: updatedText) { result in
             switch result {
             case .success(let books):
-                let vc = self.searchController.searchResultsController as? SearchResultViewController
+                let vc = self.searchController.searchResultsController as? SearchResultsViewController
                 vc?.books = books
                 vc?.tableView.reloadData()
                 guard let vc = vc else { return }

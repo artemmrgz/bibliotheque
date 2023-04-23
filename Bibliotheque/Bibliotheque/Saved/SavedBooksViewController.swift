@@ -1,13 +1,13 @@
 //
-//  ReadingListViewController.swift
+//  SavedBooksViewController.swift
 //  Bibliotheque
 //
-//  Created by Artem Marhaza on 19/04/2023.
+//  Created by Artem Marhaza on 23/04/2023.
 //
 
 import UIKit
 
-class ReadingListViewController: BooksListViewController {
+class SavedBooksViewController: BooksListViewController {
     
     var savedBooks = [BookEntity]()
 
@@ -37,7 +37,7 @@ class ReadingListViewController: BooksListViewController {
     
 }
 
-extension ReadingListViewController: UITableViewDelegate, UITableViewDataSource {
+extension SavedBooksViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return savedBooks.count

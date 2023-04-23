@@ -1,5 +1,5 @@
 //
-//  DetailsVC.swift
+//  BookDetailsViewController.swift
 //  Bibliotheque
 //
 //  Created by Artem Marhaza on 23/04/2023.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DetailsVC: UIViewController {
+class BookDetailsViewController: UIViewController {
     
     let coverPlaceholderView = CoverView()
     let floatingCoverView = CoverView()
@@ -18,7 +18,7 @@ class DetailsVC: UIViewController {
     let releaseDate = UILabel()
     let rating = UILabel()
     let bookDescription = UILabel()
-    let addButton  = CustomButton(defaultTitle: "Add to Read List", selectedTitle: "Remove")
+    let addButton  = CustomButton(defaultTitle: "Add to Saved", selectedTitle: "Remove")
    
     let topUnderlineView = UnderlineView(color: Resources.Color.textNavy)
     let bottomUnderlineView = UnderlineView(color: Resources.Color.textNavy)
@@ -30,23 +30,28 @@ class DetailsVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        scrollView.delegate = self
+        addButton.addTarget(self, action: #selector(addButtonTapped), for: .touchUpInside)
         
+        styleNavBar()
+        styleTabBar()
+        styleView()
+        layout()
+    }
+    
+    private func styleNavBar() {
         let appearance = UINavigationBarAppearance()
         appearance.configureWithTransparentBackground()
-
         navigationController?.navigationBar.standardAppearance = appearance
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
-        
-        let TBappearance = UITabBarAppearance()
-        TBappearance.backgroundColor = Resources.Color.backgroundBeige
-        tabBarController?.tabBar.standardAppearance = TBappearance
-        tabBarController?.tabBar.scrollEdgeAppearance = TBappearance
-       
-        navigationItem.largeTitleDisplayMode = .never
-        scrollView.delegate = self
-        
-        style()
-        layout()
+    }
+    
+    private func styleTabBar() {
+        let appearance = UITabBarAppearance()
+        appearance.backgroundColor = Resources.Color.backgroundBeige
+        tabBarController?.tabBar.standardAppearance = appearance
+        tabBarController?.tabBar.scrollEdgeAppearance = appearance
     }
     
     private func setupGradientBackground() -> CAGradientLayer {
@@ -58,7 +63,10 @@ class DetailsVC: UIViewController {
         return gradientLayer
     }
     
-    private func style() {
+    private func styleView() {
+        navigationItem.largeTitleDisplayMode = .never
+        view.backgroundColor = Resources.Color.textNavy
+        
         floatingCoverView.translatesAutoresizingMaskIntoConstraints = false
         
         bookTitle.translatesAutoresizingMaskIntoConstraints = false
@@ -88,17 +96,12 @@ class DetailsVC: UIViewController {
         bookDescription.numberOfLines = 0
         bookDescription.font = UIFont.systemFont(ofSize: 20)
         
-        // TODO: fetch book with title and if exist change button style
-        addButton.addTarget(self, action: #selector(addButtonTapped), for: .touchUpInside)
-        
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
         stackView.spacing = 8
         
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         let gradient = setupGradientBackground()
-        view.backgroundColor = Resources.Color.textNavy
-
         scrollView.layer.addSublayer(gradient)
     }
     
@@ -137,7 +140,7 @@ class DetailsVC: UIViewController {
     }
 }
 
-extension DetailsVC: UIScrollViewDelegate {
+extension BookDetailsViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         floatingCoverView.scrollViewDidScroll(scrollView)
         
@@ -157,7 +160,7 @@ extension DetailsVC: UIScrollViewDelegate {
     }
 }
 
-extension DetailsVC {
+extension BookDetailsViewController {
     @objc func addButtonTapped(_ sender: UIButton) {
         buttonTappedCallback(sender)
     }

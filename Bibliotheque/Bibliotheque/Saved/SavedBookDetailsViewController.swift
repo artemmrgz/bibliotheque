@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SavedBookDetailsViewController: DetailsVC {
+class SavedBookDetailsViewController: BookDetailsViewController {
     var savedBook: BookEntity? {
         didSet {
             guard let savedBook = savedBook else { return }
@@ -34,11 +34,6 @@ class SavedBookDetailsViewController: DetailsVC {
             CoreDataManager.shared.deleteBook(withName: book.trackName!)
         }
         
-        setSelectedButtonStyle()
-    }
-    
-    func setSelectedButtonStyle() {
-        addButton.isSelectedState = true
         addButton.setSelectedStyle()
     }
 }

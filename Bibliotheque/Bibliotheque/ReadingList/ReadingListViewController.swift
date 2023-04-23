@@ -60,4 +60,20 @@ extension ReadingListViewController: UITableViewDelegate, UITableViewDataSource 
         bookDetails.scrollView.contentOffset.y = -52
         navigationController?.pushViewController(bookDetails, animated: true)
     }
+    
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .delete
+    }
+    
+    // how to make it differently? Displaying each cell in section instead of row didn't work: number of sections before and after deletion should be the same error
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        tableView.beginUpdates()
+        
+        let bookName = savedBooks[indexPath.row].trackName!
+        savedBooks.remove(at: indexPath.row)
+        CoreDataManager.shared.deleteBook(withName: bookName)
+        
+        tableView.deleteRows(at: [indexPath], with: .fade)
+        tableView.endUpdates()
+    }
 }

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SavedBookDetailsViewController: BookDetailsViewController {
+class SavedBookDetailsViewController: DetailsVC {
     var savedBook: BookEntity? {
         didSet {
             guard let savedBook = savedBook else { return }
@@ -24,5 +24,21 @@ class SavedBookDetailsViewController: BookDetailsViewController {
                 floatingCoverView.imageView.image = UIImage(data: imageData)
             }
         }
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        buttonTappedCallback = { [weak self] _ in
+            guard let book = self?.savedBook else { return }
+            CoreDataManager.shared.deleteBook(withName: book.trackName!)
+        }
+        
+        setSelectedButtonStyle()
+    }
+    
+    func setSelectedButtonStyle() {
+        addButton.isSelectedState = true
+        addButton.setSelectedStyle()
     }
 }

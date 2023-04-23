@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D9365C4529F54CD6005D555F /* DetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9365C4429F54CD6005D555F /* DetailsVC.swift */; };
 		D93899E829E6A8E80061C6CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93899E729E6A8E80061C6CF /* AppDelegate.swift */; };
 		D93899EA29E6A8E80061C6CF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93899E929E6A8E80061C6CF /* SceneDelegate.swift */; };
 		D93899EC29E6A8E80061C6CF /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93899EB29E6A8E80061C6CF /* MainViewController.swift */; };
@@ -35,6 +36,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D9365C4429F54CD6005D555F /* DetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsVC.swift; sourceTree = "<group>"; };
 		D93899E429E6A8E80061C6CF /* Bibliotheque.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bibliotheque.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D93899E729E6A8E80061C6CF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D93899E929E6A8E80061C6CF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 				D94A4BBF29ED525200E98C5D /* BookDetailsViewController.swift */,
 				D94A4BC829EFFD3B00E98C5D /* UnderlineView.swift */,
 				D94A4BCA29F0240400E98C5D /* CustomButton.swift */,
+				D9365C4429F54CD6005D555F /* DetailsVC.swift */,
 			);
 			path = BookDetails;
 			sourceTree = "<group>";
@@ -251,6 +254,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D9C6C10729EC17F10074C975 /* BestsellerView.swift in Sources */,
+				D9365C4529F54CD6005D555F /* DetailsVC.swift in Sources */,
 				D96CBBB729F19C9A006CB1EE /* SavedBookDetailsViewController.swift in Sources */,
 				D94A4BCB29F0240400E98C5D /* CustomButton.swift in Sources */,
 				D94A4BC929EFFD3B00E98C5D /* UnderlineView.swift in Sources */,

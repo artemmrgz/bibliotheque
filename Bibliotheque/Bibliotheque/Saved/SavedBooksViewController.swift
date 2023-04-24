@@ -31,8 +31,14 @@ class SavedBooksViewController: BooksListViewController {
             savedBooks = books
             tableView.reloadData()
         } else {
-            // TODO: display error
+            showErrorAlert(title: "Error", message: "We could not process your request. Please try again.")
         }
+    }
+    
+    private func showErrorAlert(title: String, message: String) {
+        let ac = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "OK", style: .default))
+        present(ac, animated: true)
     }
     
 }

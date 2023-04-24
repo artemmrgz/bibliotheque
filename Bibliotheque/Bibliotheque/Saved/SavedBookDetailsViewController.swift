@@ -31,9 +31,20 @@ class SavedBookDetailsViewController: BookDetailsViewController {
         
         buttonTappedCallback = { [weak self] _ in
             guard let book = self?.savedBook else { return }
+            
             CoreDataManager.shared.deleteBook(withName: book.trackName!)
-        }
+            self?.showErrorAlert(title: "The book has been removed!", message: nil) { _ in
+                    self?.navigationController?.popViewController(animated: true)
+                }
+            }
         
         addButton.setSelectedStyle()
+    }
+    
+    private func showErrorAlert(title: String, message: String?, handler: @escaping (UIAlertAction) -> Void) {
+        let message = message ?? nil
+        let ac = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        ac.addAction(UIAlertAction(title: "OK", style: .cancel, handler: handler))
+        present(ac, animated: true)
     }
 }

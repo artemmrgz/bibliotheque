@@ -14,6 +14,8 @@ class SearchResultsViewController: BooksListViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationItem.largeTitleDisplayMode = .never
+        
         tableView.delegate = self
         tableView.dataSource = self
     }

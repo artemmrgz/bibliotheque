@@ -15,7 +15,6 @@ class BooksListViewController: UIViewController {
         super.viewDidLoad()
 
         view.backgroundColor = Resources.Color.backgroundBeige
-        navigationItem.largeTitleDisplayMode = .never
 
         setupTable()
     }

@@ -96,6 +96,7 @@
 		D93899E629E6A8E80061C6CF /* Bibliotheque */ = {
 			isa = PBXGroup;
 			children = (
+				D93E6A9929F6DF9E00B79A35 /* Profile */,
 				D96CBBB829F1BB15006CB1EE /* CoreData */,
 				D94A4BCC29F0327300E98C5D /* Saved */,
 				D98A947529EB19BF00E76A60 /* Helpers */,
@@ -150,6 +151,13 @@
 				D94A4BD129F0567900E98C5D /* CustomCell.swift */,
 			);
 			path = "Base Components";
+			sourceTree = "<group>";
+		};
+		D93E6A9929F6DF9E00B79A35 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 		D94A4BC329EDA94C00E98C5D /* BookDetails */ = {

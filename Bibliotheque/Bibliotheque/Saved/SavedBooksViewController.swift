@@ -14,6 +14,9 @@ class SavedBooksViewController: BooksListViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        title = "Saved Books"
+        navigationController?.navigationBar.prefersLargeTitles = true
+        
         tableView.delegate = self
         tableView.dataSource = self
     }

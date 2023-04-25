@@ -38,10 +38,3 @@ class MainViewController: UITabBarController {
         tabBar.barTintColor = Resources.Color.backgroundBeige
     }
 }
-
-class ProfileViewController: UIViewController {
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .systemBlue
-    }
-}

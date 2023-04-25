@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D931D86D29F6E02C00645411 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D931D86C29F6E02C00645411 /* ProfileViewController.swift */; };
+		D931D86F29F839CB00645411 /* StatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D931D86E29F839CB00645411 /* StatisticsView.swift */; };
 		D9365C4529F54CD6005D555F /* BookDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9365C4429F54CD6005D555F /* BookDetailsViewController.swift */; };
 		D93899E829E6A8E80061C6CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93899E729E6A8E80061C6CF /* AppDelegate.swift */; };
 		D93899EA29E6A8E80061C6CF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93899E929E6A8E80061C6CF /* SceneDelegate.swift */; };
@@ -36,6 +38,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D931D86C29F6E02C00645411 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		D931D86E29F839CB00645411 /* StatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsView.swift; sourceTree = "<group>"; };
 		D9365C4429F54CD6005D555F /* BookDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailsViewController.swift; sourceTree = "<group>"; };
 		D93899E429E6A8E80061C6CF /* Bibliotheque.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bibliotheque.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D93899E729E6A8E80061C6CF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -156,6 +160,8 @@
 		D93E6A9929F6DF9E00B79A35 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				D931D86C29F6E02C00645411 /* ProfileViewController.swift */,
+				D931D86E29F839CB00645411 /* StatisticsView.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -274,6 +280,7 @@
 				D96CBBB729F19C9A006CB1EE /* SavedBookDetailsViewController.swift in Sources */,
 				D94A4BCB29F0240400E98C5D /* CustomButton.swift in Sources */,
 				D94A4BC929EFFD3B00E98C5D /* UnderlineView.swift in Sources */,
+				D931D86F29F839CB00645411 /* StatisticsView.swift in Sources */,
 				D9389A0229E6C0FE0061C6CF /* SearchViewController.swift in Sources */,
 				D946551C29E8772D0037108E /* UIImageView+Networking.swift in Sources */,
 				D96CBBB329F17966006CB1EE /* BookEntity+CoreDataProperties.swift in Sources */,
@@ -291,6 +298,7 @@
 				D94A4BC229ED811E00E98C5D /* CoverView.swift in Sources */,
 				D94A4BC729EF070400E98C5D /* String+Utils.swift in Sources */,
 				D93899EA29E6A8E80061C6CF /* SceneDelegate.swift in Sources */,
+				D931D86D29F6E02C00645411 /* ProfileViewController.swift in Sources */,
 				D96CBBB229F17966006CB1EE /* BookEntity+CoreDataClass.swift in Sources */,
 				D94A4BD729F1584000E98C5D /* Bibliotheque.xcdatamodeld in Sources */,
 			);

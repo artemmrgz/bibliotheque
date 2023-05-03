@@ -34,20 +34,25 @@ class SearchBookDetailsViewController: BookDetailsViewController {
             guard let sender = button as? CustomButton, let book = self?.book else { return }
             sender.isSelectedState.toggle()
             
-            let imageData = self?.floatingCoverView.imageView.image?.pngData()
+            let savedBook = CoreDataManager.shared.fetchBook(withName: book.trackName)
             
             if sender.isSelectedState {
-                let saved = CoreDataManager.shared.saveBook(book: book, imageData: imageData)
-                if saved != nil {
-                    sender.setSelectedStyle()
+                if let savedBook = savedBook {
+                    savedBook.isRead = false
+                    CoreDataManager.shared.updateBook(book: savedBook)
                 } else {
-                    // TODO: display saving error
+                    let imageData = self?.floatingCoverView.imageView.image?.pngData()
+                    let saved = CoreDataManager.shared.saveBook(book: book, imageData: imageData)
+                    if saved == nil {
+                        // TODO: display saving error
+                    }
                 }
+                sender.setSelectedStyle()
+                
             } else {
-                let book = CoreDataManager.shared.fetchBook(withName: book.trackName)
-                guard let book = book else { return }
-                book.isRead = true
-                CoreDataManager.shared.updateBook(book: book)
+                guard let savedBook = savedBook else { return }
+                savedBook.isRead = true
+                CoreDataManager.shared.updateBook(book: savedBook)
                 sender.setDefaultStyle()
             }
         }
@@ -58,11 +63,12 @@ class SearchBookDetailsViewController: BookDetailsViewController {
     func setButtonStyle() {
         guard let bookName = book?.trackName else { return }
         let book = CoreDataManager.shared.fetchBook(withName: bookName)
-        if book == nil {
-            addButton.setDefaultStyle()
-        } else {
+        
+        if let book = book, book.isRead == false {
             addButton.isSelectedState = true
             addButton.setSelectedStyle()
+        } else {
+            addButton.setDefaultStyle()
         }
     }
 }

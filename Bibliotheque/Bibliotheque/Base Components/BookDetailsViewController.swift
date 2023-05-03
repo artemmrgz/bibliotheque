@@ -50,6 +50,8 @@ class BookDetailsViewController: UIViewController {
     private func styleTabBar() {
         let appearance = UITabBarAppearance()
         appearance.backgroundColor = Resources.Color.backgroundBeige
+        appearance.stackedLayoutAppearance.normal.titleTextAttributes = [.foregroundColor: Resources.Color.textNavy]
+        appearance.stackedLayoutAppearance.normal.iconColor = Resources.Color.textNavy
         tabBarController?.tabBar.standardAppearance = appearance
         tabBarController?.tabBar.scrollEdgeAppearance = appearance
     }

@@ -9,13 +9,6 @@ import UIKit
 
 class StatisticsView: UIView {
     
-    var height: CGFloat? {
-        didSet {
-            guard let height = height else { return }
-            layer.cornerRadius = height * 0.17
-        }
-    }
-    
     let infoView = UIView()
     let categoryLabel = UILabel()
     let numberLabel = UILabel()
@@ -25,6 +18,12 @@ class StatisticsView: UIView {
         
         style()
         layout()
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        layer.cornerRadius = bounds.height * 0.17
     }
     
     required init?(coder: NSCoder) {

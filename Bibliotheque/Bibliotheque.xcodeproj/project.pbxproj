@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D915377B29FBCF6900B26B18 /* BookEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D915377929FBCF6900B26B18 /* BookEntity+CoreDataProperties.swift */; };
 		D931D86D29F6E02C00645411 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D931D86C29F6E02C00645411 /* ProfileViewController.swift */; };
 		D931D86F29F839CB00645411 /* StatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D931D86E29F839CB00645411 /* StatisticsView.swift */; };
 		D9365C4529F54CD6005D555F /* BookDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9365C4429F54CD6005D555F /* BookDetailsViewController.swift */; };
@@ -31,13 +32,13 @@
 		D94A4BD729F1584000E98C5D /* Bibliotheque.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D94A4BD529F1584000E98C5D /* Bibliotheque.xcdatamodeld */; };
 		D94A4BD929F1597A00E98C5D /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94A4BD829F1597A00E98C5D /* CoreDataManager.swift */; };
 		D96CBBB229F17966006CB1EE /* BookEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96CBBB029F17966006CB1EE /* BookEntity+CoreDataClass.swift */; };
-		D96CBBB329F17966006CB1EE /* BookEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96CBBB129F17966006CB1EE /* BookEntity+CoreDataProperties.swift */; };
 		D96CBBB729F19C9A006CB1EE /* SavedBookDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96CBBB629F19C9A006CB1EE /* SavedBookDetailsViewController.swift */; };
 		D999653B29EB1A1E00288FBC /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = D999653A29EB1A1E00288FBC /* Resources.swift */; };
 		D9C6C10729EC17F10074C975 /* BestsellerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C6C10629EC17F10074C975 /* BestsellerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D915377929FBCF6900B26B18 /* BookEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BookEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		D931D86C29F6E02C00645411 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		D931D86E29F839CB00645411 /* StatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsView.swift; sourceTree = "<group>"; };
 		D9365C4429F54CD6005D555F /* BookDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailsViewController.swift; sourceTree = "<group>"; };
@@ -64,7 +65,6 @@
 		D94A4BD629F1584000E98C5D /* Bibliotheque.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Bibliotheque.xcdatamodel; sourceTree = "<group>"; };
 		D94A4BD829F1597A00E98C5D /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		D96CBBB029F17966006CB1EE /* BookEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BookEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
-		D96CBBB129F17966006CB1EE /* BookEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BookEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		D96CBBB629F19C9A006CB1EE /* SavedBookDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedBookDetailsViewController.swift; sourceTree = "<group>"; };
 		D999653A29EB1A1E00288FBC /* Resources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resources.swift; sourceTree = "<group>"; };
 		D9C6C10629EC17F10074C975 /* BestsellerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestsellerView.swift; sourceTree = "<group>"; };
@@ -191,8 +191,8 @@
 			children = (
 				D94A4BD529F1584000E98C5D /* Bibliotheque.xcdatamodeld */,
 				D94A4BD829F1597A00E98C5D /* CoreDataManager.swift */,
+				D915377929FBCF6900B26B18 /* BookEntity+CoreDataProperties.swift */,
 				D96CBBB029F17966006CB1EE /* BookEntity+CoreDataClass.swift */,
-				D96CBBB129F17966006CB1EE /* BookEntity+CoreDataProperties.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -283,7 +283,6 @@
 				D931D86F29F839CB00645411 /* StatisticsView.swift in Sources */,
 				D9389A0229E6C0FE0061C6CF /* SearchViewController.swift in Sources */,
 				D946551C29E8772D0037108E /* UIImageView+Networking.swift in Sources */,
-				D96CBBB329F17966006CB1EE /* BookEntity+CoreDataProperties.swift in Sources */,
 				D999653B29EB1A1E00288FBC /* Resources.swift in Sources */,
 				D93E6A9729F58F4800B79A35 /* SavedBooksViewController.swift in Sources */,
 				D94A4BD229F0567900E98C5D /* CustomCell.swift in Sources */,
@@ -295,6 +294,7 @@
 				D93899EC29E6A8E80061C6CF /* MainViewController.swift in Sources */,
 				D93899E829E6A8E80061C6CF /* AppDelegate.swift in Sources */,
 				D94A4BC029ED525200E98C5D /* SearchBookDetailsViewController.swift in Sources */,
+				D915377B29FBCF6900B26B18 /* BookEntity+CoreDataProperties.swift in Sources */,
 				D94A4BC229ED811E00E98C5D /* CoverView.swift in Sources */,
 				D94A4BC729EF070400E98C5D /* String+Utils.swift in Sources */,
 				D93899EA29E6A8E80061C6CF /* SceneDelegate.swift in Sources */,

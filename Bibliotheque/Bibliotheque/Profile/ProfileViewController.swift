@@ -34,14 +34,8 @@ class ProfileViewController: UIViewController {
         let savedTotal = getSavedTotal()
         savedBooks.configureWith(category: "Number of Saved Books", number: savedTotal)
         
-        //TODO: create Core Data entity for books that have been read
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        savedBooks.height = savedBooks.bounds.height
-        readBooks.height = readBooks.bounds.height
+        let readTotal = getReadTotal()
+        readBooks.configureWith(category: "Number of Read Books", number: readTotal)
     }
     
     private func style() {
@@ -82,6 +76,12 @@ class ProfileViewController: UIViewController {
     
     private func getSavedTotal() -> String {
         let books = CoreDataManager.shared.fetchBooks()
+        let count = books?.count ?? 0
+        return String(describing: count)
+    }
+    
+    private func getReadTotal() -> String {
+        let books = CoreDataManager.shared.fetchBooks(isRead: true)
         let count = books?.count ?? 0
         return String(describing: count)
     }

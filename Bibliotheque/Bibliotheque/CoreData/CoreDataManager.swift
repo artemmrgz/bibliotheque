@@ -45,10 +45,11 @@ struct CoreDataManager {
         return nil
     }
     
-    func fetchBooks() -> [BookEntity]? {
+    func fetchBooks(isRead: Bool = false) -> [BookEntity]? {
         let context = persistentContainer.viewContext
         
         let fetchRequest = BookEntity.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "isRead = %d", isRead)
         
         do {
             let books = try context.fetch(fetchRequest)
@@ -75,6 +76,16 @@ struct CoreDataManager {
         }
         
         return nil
+    }
+    
+    func updateBook(book: BookEntity) {
+        let context = persistentContainer.viewContext
+        
+        do {
+            try context.save()
+        } catch let saveError {
+            print("Failed to delete: \(saveError)")
+        }
     }
     
     func deleteBook(withName name: String) {

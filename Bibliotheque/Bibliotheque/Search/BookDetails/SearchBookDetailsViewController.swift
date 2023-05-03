@@ -44,7 +44,10 @@ class SearchBookDetailsViewController: BookDetailsViewController {
                     // TODO: display saving error
                 }
             } else {
-                CoreDataManager.shared.deleteBook(withName: book.trackName)
+                let book = CoreDataManager.shared.fetchBook(withName: book.trackName)
+                guard let book = book else { return }
+                book.isRead = true
+                CoreDataManager.shared.updateBook(book: book)
                 sender.setDefaultStyle()
             }
         }

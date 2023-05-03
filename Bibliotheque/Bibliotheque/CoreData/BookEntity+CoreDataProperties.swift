@@ -2,7 +2,7 @@
 //  BookEntity+CoreDataProperties.swift
 //  Bibliotheque
 //
-//  Created by Artem Marhaza on 20/04/2023.
+//  Created by Artem Marhaza on 28/04/2023.
 //
 //
 
@@ -17,10 +17,11 @@ extension BookEntity {
     }
 
     @NSManaged public var artistName: String?
-    @NSManaged public var imageData: Data?
     @NSManaged public var averageUserRating: String?
     @NSManaged public var bookDescription: String?
     @NSManaged public var genres: String?
+    @NSManaged public var imageData: Data?
+    @NSManaged public var isRead: Bool
     @NSManaged public var releaseDate: String?
     @NSManaged public var trackName: String?
 

@@ -6,6 +6,7 @@
         <attribute name="bookDescription" attributeType="String"/>
         <attribute name="genres" attributeType="String" valueTransformerName="NSSecureUnarchiveFromDataTransformer" customClassName="[String]"/>
         <attribute name="imageData" optional="YES" attributeType="Binary"/>
+        <attribute name="isRead" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
         <attribute name="releaseDate" optional="YES" attributeType="String"/>
         <attribute name="trackName" attributeType="String"/>
     </entity>

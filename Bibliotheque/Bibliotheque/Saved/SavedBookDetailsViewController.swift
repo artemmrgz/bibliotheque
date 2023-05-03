@@ -32,8 +32,10 @@ class SavedBookDetailsViewController: BookDetailsViewController {
         buttonTappedCallback = { [weak self] _ in
             guard let book = self?.savedBook else { return }
             
-            CoreDataManager.shared.deleteBook(withName: book.trackName!)
-            self?.showErrorAlert(title: "The book has been removed!", message: nil) { _ in
+            book.isRead = true
+            CoreDataManager.shared.updateBook(book: book)
+            
+            self?.showErrorAlert(title: "The book has been marked as Read!", message: nil) { _ in
                     self?.navigationController?.popViewController(animated: true)
                 }
             }

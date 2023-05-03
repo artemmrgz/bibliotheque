@@ -83,9 +83,12 @@ extension SavedBooksViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         tableView.beginUpdates()
         
-        let bookName = savedBooks[indexPath.row].trackName!
-        savedBooks.remove(at: indexPath.row)
-        CoreDataManager.shared.deleteBook(withName: bookName)
+//        let bookName = savedBooks[indexPath.row].trackName!
+//        CoreDataManager.shared.deleteBook(withName: bookName)
+        
+        let book = savedBooks.remove(at: indexPath.row)
+        book.isRead = true
+        CoreDataManager.shared.updateBook(book: book)
         
         tableView.deleteRows(at: [indexPath], with: .fade)
         tableView.endUpdates()

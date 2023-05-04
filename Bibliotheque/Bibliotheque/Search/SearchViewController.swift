@@ -8,11 +8,15 @@
 import UIKit
 
 class SearchViewController: UIViewController {
-    var timer: Timer?
     let networkService = NetworkService()
     let searchController =  UISearchController(searchResultsController: SearchResultsViewController())
-    let vc = BestsellerResultsViewController()
+    let bestsellersVC = BestsellerResultsViewController()
     
+    lazy var errorAlert: UIAlertController = {
+        let alert = UIAlertController(title: "", message: "", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        return alert
+    }()
     
     let scrollView = UIScrollView()
     let stackView = UIStackView()
@@ -88,12 +92,40 @@ class SearchViewController: UIViewController {
     private func processResult(_ result: Result<[BestsellerBook], NetworkError>) {
         switch result {
         case .success(let books):
-            vc.books = books
-            vc.tableView.reloadData()
-            self.navigationController?.pushViewController(vc, animated: true)
+            bestsellersVC.books = books
+            bestsellersVC.tableView.reloadData()
+            self.navigationController?.pushViewController(bestsellersVC, animated: true)
         case .failure(let error):
-            print(error)
+            displayError(error)
         }
+    }
+    
+    private func displayError(_ error: NetworkError) {
+        let (title, message) = titleAndMessage(for: error)
+        showErrorAlert(title: title, message: message)
+    }
+    
+    private func titleAndMessage(for error: NetworkError) -> (String, String) {
+        let title: String
+        let message: String
+        
+        switch error {
+        case .serverError:
+            title = "Server Error"
+            message = "Please make sure you are connected to the internet"
+        case .decodingError:
+            title = "Network Error"
+            message = "We could not process your request. Please try again."
+        }
+        
+        return (title, message)
+    }
+    
+    private func showErrorAlert(title: String, message: String) {
+        errorAlert.title = title
+        errorAlert.message = message
+        
+        present(errorAlert, animated: true)
     }
 }
 
@@ -104,16 +136,16 @@ extension SearchViewController: UISearchBarDelegate {
         
         let updatedText = searchText.replacingOccurrences(of: " ", with: "+")
         
-        networkService.fetchBooks(containing: updatedText) { result in
+        networkService.fetchBooks(containing: updatedText) { [weak self] result in
             switch result {
             case .success(let books):
-                let vc = self.searchController.searchResultsController as? SearchResultsViewController
+                let vc = self?.searchController.searchResultsController as? SearchResultsViewController
                 vc?.books = books
                 vc?.tableView.reloadData()
                 guard let vc = vc else { return }
-                self.navigationController?.pushViewController(vc, animated: true)
+                self?.navigationController?.pushViewController(vc, animated: true)
             case .failure(let error):
-                print(error)
+                self?.displayError(error)
             }
         }
     }

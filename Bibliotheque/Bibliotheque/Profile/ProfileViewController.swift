@@ -10,9 +10,6 @@ import UIKit
 class ProfileViewController: UIViewController {
     
     let imageViewSideSize: CGFloat = 150
-    var imageViewConerRadius: CGFloat {
-       return imageViewSideSize / 2
-    }
     
     let imageView = UIImageView()
     let stackView = UIStackView()
@@ -26,6 +23,7 @@ class ProfileViewController: UIViewController {
         
         style()
         layout()
+        setupGestureRecognizer()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -46,7 +44,7 @@ class ProfileViewController: UIViewController {
         
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.backgroundColor = Resources.Color.secondaryAccentGray
-        imageView.layer.cornerRadius = imageViewConerRadius
+        imageView.layer.cornerRadius = imageViewSideSize / 2
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         imageView.image = UIImage(named: "personIcon")
@@ -84,5 +82,26 @@ class ProfileViewController: UIViewController {
         let books = CoreDataManager.shared.fetchBooks(isRead: true)
         let count = books?.count ?? 0
         return String(describing: count)
+    }
+    
+    private func setupGestureRecognizer() {
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(imageTapped))
+        imageView.isUserInteractionEnabled = true
+        imageView.addGestureRecognizer(gesture)
+    }
+    
+    @objc func imageTapped() {
+        let picker = UIImagePickerController()
+        picker.allowsEditing = true
+        picker.delegate = self
+        present(picker, animated: true)
+    }
+}
+
+extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let image = info[.editedImage] as? UIImage else { return }
+        imageView.image = image
+        dismiss(animated: true)
     }
 }

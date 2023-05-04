@@ -15,6 +15,8 @@ class BestsellerView: UIView {
     let logoImageView = UIImageView()
     let textLabel = UILabel()
     
+    var onClick: (() -> Void) = { }
+    
     init(category: String) {
         self.category = category
         
@@ -22,6 +24,7 @@ class BestsellerView: UIView {
         
         style()
         layout()
+        setupGestureRecognizer()
     }
     
     required init?(coder: NSCoder) {
@@ -77,5 +80,14 @@ class BestsellerView: UIView {
         attrText.append(NSAttributedString(string: " Bestsellers", attributes: bestsellerGrayAttrString))
 
         return attrText
+    }
+    
+    private func setupGestureRecognizer() {
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(viewClicked))
+        self.addGestureRecognizer(gesture)
+    }
+    
+    @objc func viewClicked() {
+        onClick()
     }
 }

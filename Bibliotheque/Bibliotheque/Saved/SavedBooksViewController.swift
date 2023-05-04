@@ -17,6 +17,8 @@ class SavedBooksViewController: BooksListViewController {
         title = "Saved Books"
         navigationController?.navigationBar.prefersLargeTitles = true
         
+        tableView.register(CustomCell.self, forCellReuseIdentifier: CustomCell.reuseID)
+        tableView.rowHeight = CustomCell.rowHeight
         tableView.delegate = self
         tableView.dataSource = self
     }

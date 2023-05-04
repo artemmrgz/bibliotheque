@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		D915377B29FBCF6900B26B18 /* BookEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D915377929FBCF6900B26B18 /* BookEntity+CoreDataProperties.swift */; };
+		D915377D2A02980700B26B18 /* BestsellerResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D915377C2A02980700B26B18 /* BestsellerResultsViewController.swift */; };
+		D915377F2A029B5300B26B18 /* BestsellerResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D915377E2A029B5300B26B18 /* BestsellerResultCell.swift */; };
+		D9293DB82A03EAD300EDAD01 /* RankFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9293DB72A03EAD300EDAD01 /* RankFormatter.swift */; };
 		D931D86D29F6E02C00645411 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D931D86C29F6E02C00645411 /* ProfileViewController.swift */; };
 		D931D86F29F839CB00645411 /* StatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D931D86E29F839CB00645411 /* StatisticsView.swift */; };
 		D9365C4529F54CD6005D555F /* BookDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9365C4429F54CD6005D555F /* BookDetailsViewController.swift */; };
@@ -39,6 +42,9 @@
 
 /* Begin PBXFileReference section */
 		D915377929FBCF6900B26B18 /* BookEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BookEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		D915377C2A02980700B26B18 /* BestsellerResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestsellerResultsViewController.swift; sourceTree = "<group>"; };
+		D915377E2A029B5300B26B18 /* BestsellerResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestsellerResultCell.swift; sourceTree = "<group>"; };
+		D9293DB72A03EAD300EDAD01 /* RankFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankFormatter.swift; sourceTree = "<group>"; };
 		D931D86C29F6E02C00645411 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		D931D86E29F839CB00645411 /* StatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsView.swift; sourceTree = "<group>"; };
 		D9365C4429F54CD6005D555F /* BookDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailsViewController.swift; sourceTree = "<group>"; };
@@ -81,6 +87,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D9293DB92A0423CC00EDAD01 /* Bestsellers */ = {
+			isa = PBXGroup;
+			children = (
+				D9C6C10629EC17F10074C975 /* BestsellerView.swift */,
+				D915377C2A02980700B26B18 /* BestsellerResultsViewController.swift */,
+				D915377E2A029B5300B26B18 /* BestsellerResultCell.swift */,
+			);
+			path = Bestsellers;
+			sourceTree = "<group>";
+		};
 		D93899DB29E6A8E80061C6CF = {
 			isa = PBXGroup;
 			children = (
@@ -123,6 +139,7 @@
 			children = (
 				D93899FC29E6B0AF0061C6CF /* UIViewController+Utils.swift */,
 				D94A4BC629EF070400E98C5D /* String+Utils.swift */,
+				D9293DB72A03EAD300EDAD01 /* RankFormatter.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -130,7 +147,7 @@
 		D9389A0029E6C0140061C6CF /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				D9C6C10629EC17F10074C975 /* BestsellerView.swift */,
+				D9293DB92A0423CC00EDAD01 /* Bestsellers */,
 				D9389A0129E6C0FE0061C6CF /* SearchViewController.swift */,
 				D9389A0329E6CD360061C6CF /* SearchResultsViewController.swift */,
 				D94A4BC329EDA94C00E98C5D /* BookDetails */,
@@ -284,16 +301,19 @@
 				D9389A0229E6C0FE0061C6CF /* SearchViewController.swift in Sources */,
 				D946551C29E8772D0037108E /* UIImageView+Networking.swift in Sources */,
 				D999653B29EB1A1E00288FBC /* Resources.swift in Sources */,
+				D915377F2A029B5300B26B18 /* BestsellerResultCell.swift in Sources */,
 				D93E6A9729F58F4800B79A35 /* SavedBooksViewController.swift in Sources */,
 				D94A4BD229F0567900E98C5D /* CustomCell.swift in Sources */,
 				D9389A0929E8049B0061C6CF /* NetworkService.swift in Sources */,
 				D94A4BD929F1597A00E98C5D /* CoreDataManager.swift in Sources */,
 				D94A4BD029F0555200E98C5D /* BooksListViewController.swift in Sources */,
 				D9389A0429E6CD360061C6CF /* SearchResultsViewController.swift in Sources */,
+				D915377D2A02980700B26B18 /* BestsellerResultsViewController.swift in Sources */,
 				D93899FD29E6B0AF0061C6CF /* UIViewController+Utils.swift in Sources */,
 				D93899EC29E6A8E80061C6CF /* MainViewController.swift in Sources */,
 				D93899E829E6A8E80061C6CF /* AppDelegate.swift in Sources */,
 				D94A4BC029ED525200E98C5D /* SearchBookDetailsViewController.swift in Sources */,
+				D9293DB82A03EAD300EDAD01 /* RankFormatter.swift in Sources */,
 				D915377B29FBCF6900B26B18 /* BookEntity+CoreDataProperties.swift in Sources */,
 				D94A4BC229ED811E00E98C5D /* CoverView.swift in Sources */,
 				D94A4BC729EF070400E98C5D /* String+Utils.swift in Sources */,

@@ -16,6 +16,8 @@ class SearchResultsViewController: BooksListViewController {
         
         navigationItem.largeTitleDisplayMode = .never
         
+        tableView.register(CustomCell.self, forCellReuseIdentifier: CustomCell.reuseID)
+        tableView.rowHeight = CustomCell.rowHeight
         tableView.delegate = self
         tableView.dataSource = self
     }

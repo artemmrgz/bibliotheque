@@ -11,6 +11,7 @@ class SearchViewController: UIViewController {
     var timer: Timer?
     let networkService = NetworkService()
     let searchController =  UISearchController(searchResultsController: SearchResultsViewController())
+    let vc = BestsellerResultsViewController()
     
     
     let scrollView = UIScrollView()
@@ -70,6 +71,29 @@ class SearchViewController: UIViewController {
             stackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
             stackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor)
         ])
+        
+        fictionBestsellerView.onClick = { [weak self] in
+            self?.networkService.fetchBestsellers(for: BestsellerCategory.fiction) { result in
+                self?.processResult(result)
+            }
+        }
+        
+        nonfictionBestsellerView.onClick = { [weak self] in
+            self?.networkService.fetchBestsellers(for: BestsellerCategory.nonFiction) { result in
+                self?.processResult(result)
+            }
+        }
+    }
+    
+    private func processResult(_ result: Result<[BestsellerBook], NetworkError>) {
+        switch result {
+        case .success(let books):
+            vc.books = books
+            vc.tableView.reloadData()
+            self.navigationController?.pushViewController(vc, animated: true)
+        case .failure(let error):
+            print(error)
+        }
     }
 }
 

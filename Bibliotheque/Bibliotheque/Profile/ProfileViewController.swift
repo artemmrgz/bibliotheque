@@ -17,12 +17,14 @@ class ProfileViewController: UIViewController {
     let savedBooks = StatisticsView()
     let readBooks = StatisticsView()
     
+    let documentsManager = DocumentsManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         style()
         layout()
+        setProfilePicture()
         setupGestureRecognizer()
     }
     
@@ -47,7 +49,6 @@ class ProfileViewController: UIViewController {
         imageView.layer.cornerRadius = imageViewSideSize / 2
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
-        imageView.image = UIImage(named: "personIcon")
         
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
@@ -96,11 +97,21 @@ class ProfileViewController: UIViewController {
         picker.delegate = self
         present(picker, animated: true)
     }
+    
+    private func setProfilePicture() {
+        if let data = documentsManager.getProfilePicture() {
+            imageView.image = UIImage(data: data)
+        } else {
+            imageView.image = UIImage(named: "personIcon")
+        }
+    }
 }
 
 extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let image = info[.editedImage] as? UIImage else { return }
+        
+        documentsManager.saveProfilePicture(image)
         imageView.image = image
         dismiss(animated: true)
     }

@@ -38,6 +38,7 @@
 		D96CBBB729F19C9A006CB1EE /* SavedBookDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96CBBB629F19C9A006CB1EE /* SavedBookDetailsViewController.swift */; };
 		D999653B29EB1A1E00288FBC /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = D999653A29EB1A1E00288FBC /* Resources.swift */; };
 		D9C6C10729EC17F10074C975 /* BestsellerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C6C10629EC17F10074C975 /* BestsellerView.swift */; };
+		D9D60CCF2A0663F600614542 /* DocumentsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D60CCE2A0663F600614542 /* DocumentsManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,6 +75,7 @@
 		D96CBBB629F19C9A006CB1EE /* SavedBookDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedBookDetailsViewController.swift; sourceTree = "<group>"; };
 		D999653A29EB1A1E00288FBC /* Resources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resources.swift; sourceTree = "<group>"; };
 		D9C6C10629EC17F10074C975 /* BestsellerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestsellerView.swift; sourceTree = "<group>"; };
+		D9D60CCE2A0663F600614542 /* DocumentsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentsManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +142,7 @@
 				D93899FC29E6B0AF0061C6CF /* UIViewController+Utils.swift */,
 				D94A4BC629EF070400E98C5D /* String+Utils.swift */,
 				D9293DB72A03EAD300EDAD01 /* RankFormatter.swift */,
+				D9D60CCE2A0663F600614542 /* DocumentsManager.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -306,6 +309,7 @@
 				D94A4BD229F0567900E98C5D /* CustomCell.swift in Sources */,
 				D9389A0929E8049B0061C6CF /* NetworkService.swift in Sources */,
 				D94A4BD929F1597A00E98C5D /* CoreDataManager.swift in Sources */,
+				D9D60CCF2A0663F600614542 /* DocumentsManager.swift in Sources */,
 				D94A4BD029F0555200E98C5D /* BooksListViewController.swift in Sources */,
 				D9389A0429E6CD360061C6CF /* SearchResultsViewController.swift in Sources */,
 				D915377D2A02980700B26B18 /* BestsellerResultsViewController.swift in Sources */,

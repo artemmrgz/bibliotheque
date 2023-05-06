@@ -10,7 +10,7 @@ import UIKit
 class SearchViewController: UIViewController {
     let networkService = NetworkService()
     let searchController =  UISearchController(searchResultsController: SearchResultsViewController())
-    let bestsellersVC = BestsellerResultsViewController()
+    var bestsellersVC: BestsellerResultsViewController? = nil
     
     lazy var errorAlert: UIAlertController = {
         let alert = UIAlertController(title: "", message: "", preferredStyle: .alert)
@@ -46,6 +46,7 @@ class SearchViewController: UIViewController {
     
     private func setupSearchBar() {
         navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = false
         searchController.searchBar.delegate = self
         searchController.obscuresBackgroundDuringPresentation = false
     }
@@ -77,32 +78,38 @@ class SearchViewController: UIViewController {
         ])
         
         fictionBestsellerView.onClick = { [weak self] in
+            self?.presentBestsellersVC()
             self?.networkService.fetchBestsellers(for: BestsellerCategory.fiction) { result in
                 self?.processResult(result)
             }
         }
         
         nonfictionBestsellerView.onClick = { [weak self] in
+            self?.presentBestsellersVC()
             self?.networkService.fetchBestsellers(for: BestsellerCategory.nonFiction) { result in
                 self?.processResult(result)
             }
         }
     }
     
+    private func presentBestsellersVC() {
+        bestsellersVC = BestsellerResultsViewController()
+        navigationController?.pushViewController(bestsellersVC!, animated: true)
+    }
+    
     private func processResult(_ result: Result<[BestsellerBook], NetworkError>) {
+        guard let bestsellersVC = bestsellersVC else { return }
         switch result {
         case .success(let books):
             bestsellersVC.books = books
-            bestsellersVC.tableView.reloadData()
-            self.navigationController?.pushViewController(bestsellersVC, animated: true)
         case .failure(let error):
-            displayError(error)
+            displayError(error, onVC: bestsellersVC)
         }
     }
     
-    private func displayError(_ error: NetworkError) {
+    private func displayError(_ error: NetworkError, onVC VC: UIViewController) {
         let (title, message) = titleAndMessage(for: error)
-        showErrorAlert(title: title, message: message)
+        showErrorAlert(title: title, message: message, onVC: VC)
     }
     
     private func titleAndMessage(for error: NetworkError) -> (String, String) {
@@ -121,11 +128,11 @@ class SearchViewController: UIViewController {
         return (title, message)
     }
     
-    private func showErrorAlert(title: String, message: String) {
+    private func showErrorAlert(title: String, message: String, onVC VC: UIViewController) {
         errorAlert.title = title
         errorAlert.message = message
         
-        present(errorAlert, animated: true)
+        VC.present(errorAlert, animated: true)
     }
 }
 
@@ -145,7 +152,8 @@ extension SearchViewController: UISearchBarDelegate {
                 guard let vc = vc else { return }
                 self?.navigationController?.pushViewController(vc, animated: true)
             case .failure(let error):
-                self?.displayError(error)
+                guard let vc = self else { return }
+                self?.displayError(error, onVC: vc)
             }
         }
     }

@@ -9,7 +9,21 @@ import UIKit
 
 class BestsellerResultsViewController: BooksListViewController {
     
-    var books: [BestsellerBook]?
+    var books: [BestsellerBook]? {
+        didSet {
+            tableView.reloadData()
+            activityIndicator.stopAnimating()
+            activityIndicator.isHidden = true
+        }
+    }
+    
+    let activityIndicator = UIActivityIndicatorView()
+    
+    lazy var errorAlert: UIAlertController = {
+        let alert = UIAlertController(title: "", message: "", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        return alert
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +34,11 @@ class BestsellerResultsViewController: BooksListViewController {
         tableView.register(BestsellerResultCell.self, forCellReuseIdentifier: BestsellerResultCell.reuseID)
         tableView.delegate = self
         tableView.dataSource = self
+        
+        activityIndicator.center = view.center
+        activityIndicator.startAnimating()
+        
+        view.addSubview(activityIndicator)
     }
 }
 

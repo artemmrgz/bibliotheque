@@ -52,7 +52,6 @@ extension BestsellerResultsViewController: UITableViewDelegate, UITableViewDataS
         
         let cell = tableView.dequeueReusableCell(withIdentifier: BestsellerResultCell.reuseID, for: indexPath) as! BestsellerResultCell
         cell.configureWith(book: book)
-        cell.coverImageView.downloaded(from: book.imageUrl)
         return cell
     }
 }

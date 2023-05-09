@@ -39,8 +39,6 @@ extension SearchResultsViewController: UITableViewDelegate, UITableViewDataSourc
 
         if let imageLink = book.artworkUrl100 {
             cell.bookCoverImageView.downloaded(from: imageLink)
-        } else {
-            // TODO: add placeholder image
         }
         return cell
     }

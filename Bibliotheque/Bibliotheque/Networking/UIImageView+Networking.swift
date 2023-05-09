@@ -15,8 +15,10 @@ extension UIImageView {
             guard let data = data, error == nil else { return }
             let image = UIImage(data: data)
             
-            DispatchQueue.main.async { [weak self] in
-                self?.image = image
+            if let image = image {
+                DispatchQueue.main.async { [weak self] in
+                        self?.image = image
+                }
             }
         }.resume()
     }

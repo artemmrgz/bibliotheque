@@ -87,6 +87,7 @@ class BestsellerResultCell: UITableViewCell {
         coverImageView.layer.cornerRadius = 8
         coverImageView.clipsToBounds = true
         coverImageView.contentMode = .scaleAspectFill
+        coverImageView.image = UIImage(named: "book-question-mark")
         
         rankLabel.translatesAutoresizingMaskIntoConstraints = false
         rankLabel.textAlignment = .center
@@ -178,5 +179,6 @@ class BestsellerResultCell: UITableViewCell {
         descriptionLabel.text = book.description
         rankLabel.attributedText = RankFormatter().makeAttrebutedRank(currentRank: book.rank, rankLastWeek: book.rankLastWeek)
         weeksOnList.attributedText = makeFormattedText(number: String(describing: book.weeksOnList), description: "weeks on list")
+        coverImageView.downloaded(from: book.imageUrl)
     }
 }

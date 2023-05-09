@@ -49,6 +49,7 @@ class CustomCell: UITableViewCell {
         bookCoverImageView.clipsToBounds = true
         bookCoverImageView.contentMode = .scaleAspectFill
         bookCoverImageView.setContentHuggingPriority(.defaultHigh, for: .horizontal)
+        bookCoverImageView.image = UIImage(named: "book-question-mark")
         
         bookNameLabel.translatesAutoresizingMaskIntoConstraints = false
         bookNameLabel.font = .boldSystemFont(ofSize: 20)

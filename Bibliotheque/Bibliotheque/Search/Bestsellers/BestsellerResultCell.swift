@@ -87,7 +87,6 @@ class BestsellerResultCell: UITableViewCell {
         coverImageView.layer.cornerRadius = 8
         coverImageView.clipsToBounds = true
         coverImageView.contentMode = .scaleAspectFill
-        coverImageView.backgroundColor = .systemGreen
         
         rankLabel.translatesAutoresizingMaskIntoConstraints = false
         rankLabel.textAlignment = .center

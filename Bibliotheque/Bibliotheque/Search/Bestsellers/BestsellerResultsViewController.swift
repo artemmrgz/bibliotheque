@@ -27,8 +27,6 @@ class BestsellerResultsViewController: BooksListViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
-        navigationItem.largeTitleDisplayMode = .never
 
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.register(BestsellerResultCell.self, forCellReuseIdentifier: BestsellerResultCell.reuseID)

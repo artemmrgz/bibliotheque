@@ -15,6 +15,7 @@ class BooksListViewController: UIViewController {
         super.viewDidLoad()
 
         view.backgroundColor = Resources.Color.backgroundBeige
+        navigationController?.navigationBar.prefersLargeTitles = true
 
         setupTable()
     }

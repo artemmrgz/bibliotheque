@@ -78,22 +78,23 @@ class SearchViewController: UIViewController {
         ])
         
         fictionBestsellerView.onClick = { [weak self] in
-            self?.presentBestsellersVC()
+            self?.presentBestsellersVC(withTitle: "Fiction Bestsellers")
             self?.networkService.fetchBestsellers(for: BestsellerCategory.fiction) { result in
                 self?.processResult(result)
             }
         }
         
         nonfictionBestsellerView.onClick = { [weak self] in
-            self?.presentBestsellersVC()
+            self?.presentBestsellersVC(withTitle: "Nonfiction Bestsellers")
             self?.networkService.fetchBestsellers(for: BestsellerCategory.nonFiction) { result in
                 self?.processResult(result)
             }
         }
     }
     
-    private func presentBestsellersVC() {
+    private func presentBestsellersVC(withTitle title: String) {
         bestsellersVC = BestsellerResultsViewController()
+        bestsellersVC?.title = title
         navigationController?.pushViewController(bestsellersVC!, animated: true)
     }
     

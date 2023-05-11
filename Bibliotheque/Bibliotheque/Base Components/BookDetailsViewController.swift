@@ -151,6 +151,8 @@ class BookDetailsViewController: UIViewController {
     private func styleSPAlert(_ alert: SPAlertView) {
         alert.layout.iconSize = .init(width: 100, height: 100)
         alert.layout.margins.top = 32
+        alert.iconView?.tintColor = Resources.Color.textNavy
+        alert.titleLabel?.textColor = Resources.Color.textNavy
     }
 }
 

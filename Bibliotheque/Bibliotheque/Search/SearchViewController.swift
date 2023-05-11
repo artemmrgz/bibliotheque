@@ -6,16 +6,24 @@
 //
 
 import UIKit
+import SPAlert
 
 class SearchViewController: UIViewController {
     let networkService = NetworkService()
     let searchController =  UISearchController(searchResultsController: SearchResultsViewController())
     var bestsellersVC: BestsellerResultsViewController? = nil
     
-    lazy var errorAlert: UIAlertController = {
-        let alert = UIAlertController(title: "", message: "", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default))
-        return alert
+    lazy var errorAlert: SPAlertView = {
+        let alertView = SPAlertView(title: "", message: "", preset: .custom(UIImage.init(systemName: "exclamationmark.circle")!))
+        alertView.titleLabel?.textColor = Resources.Color.textNavy
+        alertView.titleLabel?.textAlignment = .center
+        alertView.subtitleLabel?.textAlignment = .center
+        alertView.subtitleLabel?.textColor = Resources.Color.textNavy
+        alertView.iconView?.tintColor = Resources.Color.textNavy
+        alertView.layout.iconSize = .init(width: 100, height: 100)
+        alertView.layout.margins.top = 32
+        alertView.dismissInTime = false
+        return alertView
     }()
     
     let scrollView = UIScrollView()
@@ -104,19 +112,19 @@ class SearchViewController: UIViewController {
         case .success(let books):
             bestsellersVC.books = books
         case .failure(let error):
-            displayError(error, onVC: bestsellersVC)
+            displayError(error)
         }
     }
     
-    private func displayError(_ error: NetworkError, onVC VC: UIViewController) {
+    private func displayError(_ error: NetworkError) {
         let (title, message) = titleAndMessage(for: error)
-        showErrorAlert(title: title, message: message, onVC: VC)
+        showErrorAlert(title: title, message: message)
     }
     
     private func titleAndMessage(for error: NetworkError) -> (String, String) {
         let title: String
         let message: String
-        
+
         switch error {
         case .serverError:
             title = "Server Error"
@@ -125,15 +133,13 @@ class SearchViewController: UIViewController {
             title = "Network Error"
             message = "We could not process your request. Please try again."
         }
-        
         return (title, message)
     }
     
-    private func showErrorAlert(title: String, message: String, onVC VC: UIViewController) {
-        errorAlert.title = title
-        errorAlert.message = message
-        
-        VC.present(errorAlert, animated: true)
+    private func showErrorAlert(title: String, message: String) {
+        errorAlert.titleLabel?.text = title
+        errorAlert.subtitleLabel?.text = message
+        errorAlert.present(haptic: .error)
     }
 }
 
@@ -153,8 +159,7 @@ extension SearchViewController: UISearchBarDelegate {
                 guard let vc = vc else { return }
                 self?.navigationController?.pushViewController(vc, animated: true)
             case .failure(let error):
-                guard let vc = self else { return }
-                self?.displayError(error, onVC: vc)
+                self?.displayError(error)
             }
         }
     }

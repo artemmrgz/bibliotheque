@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import SPAlert
 
 class SavedBookDetailsViewController: BookDetailsViewController {
     var savedBook: BookEntity? {
@@ -36,19 +35,11 @@ class SavedBookDetailsViewController: BookDetailsViewController {
             book.isRead = true
             CoreDataManager.shared.updateBook(book: book)
             
-            let alertView = SPAlertView(title: "Marked as Read", preset: .done)
-            alertView.present(haptic: .success) {
+            self?.showSPAlert(withTitle: "Marked as Read", preset: .done, completion: {
                 self?.navigationController?.popViewController(animated: true)
-            }
+            })
         }
         
         addButton.setSelectedStyle()
-    }
-    
-    private func showErrorAlert(title: String, message: String?, handler: @escaping (UIAlertAction) -> Void) {
-        let message = message ?? nil
-        let ac = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        ac.addAction(UIAlertAction(title: "OK", style: .cancel, handler: handler))
-        present(ac, animated: true)
     }
 }

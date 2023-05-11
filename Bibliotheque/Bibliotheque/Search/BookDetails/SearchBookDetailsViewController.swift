@@ -47,13 +47,17 @@ class SearchBookDetailsViewController: BookDetailsViewController {
                         // TODO: display saving error
                     }
                 }
-                sender.setSelectedStyle()
-                
+                self?.showSPAlert(withTitle: "Added to Saved", preset: .heart, completion: {
+                    sender.setSelectedStyle()
+                })
             } else {
                 guard let savedBook = savedBook else { return }
                 savedBook.isRead = true
                 CoreDataManager.shared.updateBook(book: savedBook)
-                sender.setDefaultStyle()
+                
+                self?.showSPAlert(withTitle: "Marked as Read", preset: .done, completion: {
+                    sender.setDefaultStyle()
+                })
             }
         }
         

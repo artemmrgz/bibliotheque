@@ -44,10 +44,10 @@ class SearchBookDetailsViewController: BookDetailsViewController {
                     let imageData = self?.floatingCoverView.imageView.image?.pngData()
                     let saved = CoreDataManager.shared.saveBook(book: book, imageData: imageData)
                     if saved == nil {
-                        // TODO: display saving error
+                        self?.displaySPAlert(title: "Error", message: "Unfortunatelly we couldn't save the book. Please try again.", preset: .custom(UIImage(systemName: "exclamationmark.circle")!), haptic: .error)
                     }
                 }
-                self?.displaySPAlert(title: "Added to Saved", preset: .heart, haptic: .success, completion: {
+                self?.displaySPAlert(title: "Added to Saved", preset: .custom(UIImage(systemName: "books.vertical")!), haptic: .success, completion: {
                     sender.setSelectedStyle()
                 })
             } else {

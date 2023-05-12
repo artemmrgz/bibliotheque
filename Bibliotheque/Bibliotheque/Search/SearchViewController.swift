@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import SPAlert
 
 class SearchViewController: UIViewController {
     let networkService = NetworkService()
@@ -105,7 +104,7 @@ class SearchViewController: UIViewController {
     
     private func displayError(_ error: NetworkError) {
         let (title, message) = titleAndMessage(for: error)
-        displaySPAlert(title: title, message: message, preset: .custom(UIImage(systemName: "exclamationmark.circle")!), haptic: .error)
+        bestsellersVC?.displaySPAlert(title: title, message: message, preset: .custom(UIImage(systemName: "exclamationmark.circle")!), haptic: .error)
     }
     
     private func titleAndMessage(for error: NetworkError) -> (String, String) {

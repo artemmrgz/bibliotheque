@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SPAlert
 
 class BooksListViewController: UIViewController {
     
@@ -18,6 +19,12 @@ class BooksListViewController: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
 
         setupTable()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        SPAlert.dismiss()
     }
 
     private func setupTable() {

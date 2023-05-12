@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import SPAlert
 
 class BookDetailsViewController: UIViewController {
     
@@ -140,19 +139,6 @@ class BookDetailsViewController: UIViewController {
             
             addButton.heightAnchor.constraint(equalToConstant: 40)
         ])
-    }
-    
-    func showSPAlert(withTitle title: String, preset: SPAlertIconPreset, completion: @escaping () -> Void) {
-        let alertView = SPAlertView(title: title, preset: preset)
-        styleSPAlert(alertView)
-        alertView.present(haptic: .success, completion: completion)
-    }
-    
-    private func styleSPAlert(_ alert: SPAlertView) {
-        alert.layout.iconSize = .init(width: 100, height: 100)
-        alert.layout.margins.top = 32
-        alert.iconView?.tintColor = Resources.Color.textNavy
-        alert.titleLabel?.textColor = Resources.Color.textNavy
     }
 }
 

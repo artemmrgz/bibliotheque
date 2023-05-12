@@ -35,7 +35,7 @@ class SavedBookDetailsViewController: BookDetailsViewController {
             book.isRead = true
             CoreDataManager.shared.updateBook(book: book)
             
-            self?.showSPAlert(withTitle: "Marked as Read", preset: .done, completion: {
+            self?.displaySPAlert(title: "Marked as Read", preset: .done, haptic: .success, completion: {
                 self?.navigationController?.popViewController(animated: true)
             })
         }

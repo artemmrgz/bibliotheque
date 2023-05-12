@@ -47,7 +47,7 @@ class SearchBookDetailsViewController: BookDetailsViewController {
                         // TODO: display saving error
                     }
                 }
-                self?.showSPAlert(withTitle: "Added to Saved", preset: .heart, completion: {
+                self?.displaySPAlert(title: "Added to Saved", preset: .heart, haptic: .success, completion: {
                     sender.setSelectedStyle()
                 })
             } else {
@@ -55,7 +55,7 @@ class SearchBookDetailsViewController: BookDetailsViewController {
                 savedBook.isRead = true
                 CoreDataManager.shared.updateBook(book: savedBook)
                 
-                self?.showSPAlert(withTitle: "Marked as Read", preset: .done, completion: {
+                self?.displaySPAlert(title: "Marked as Read", preset: .done, haptic: .success, completion: {
                     sender.setDefaultStyle()
                 })
             }

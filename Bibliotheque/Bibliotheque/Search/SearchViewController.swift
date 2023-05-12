@@ -13,19 +13,6 @@ class SearchViewController: UIViewController {
     let searchController =  UISearchController(searchResultsController: SearchResultsViewController())
     var bestsellersVC: BestsellerResultsViewController? = nil
     
-    lazy var errorAlert: SPAlertView = {
-        let alertView = SPAlertView(title: "", message: "", preset: .custom(UIImage.init(systemName: "exclamationmark.circle")!))
-        alertView.titleLabel?.textColor = Resources.Color.textNavy
-        alertView.titleLabel?.textAlignment = .center
-        alertView.subtitleLabel?.textAlignment = .center
-        alertView.subtitleLabel?.textColor = Resources.Color.textNavy
-        alertView.iconView?.tintColor = Resources.Color.textNavy
-        alertView.layout.iconSize = .init(width: 100, height: 100)
-        alertView.layout.margins.top = 32
-        alertView.dismissInTime = false
-        return alertView
-    }()
-    
     let scrollView = UIScrollView()
     let stackView = UIStackView()
     let fictionBestsellerView = BestsellerView(category: "Fiction")
@@ -118,7 +105,7 @@ class SearchViewController: UIViewController {
     
     private func displayError(_ error: NetworkError) {
         let (title, message) = titleAndMessage(for: error)
-        showErrorAlert(title: title, message: message)
+        displaySPAlert(title: title, message: message, preset: .custom(UIImage(systemName: "exclamationmark.circle")!), haptic: .error)
     }
     
     private func titleAndMessage(for error: NetworkError) -> (String, String) {
@@ -134,12 +121,6 @@ class SearchViewController: UIViewController {
             message = "We could not process your request. Please try again."
         }
         return (title, message)
-    }
-    
-    private func showErrorAlert(title: String, message: String) {
-        errorAlert.titleLabel?.text = title
-        errorAlert.subtitleLabel?.text = message
-        errorAlert.present(haptic: .error)
     }
 }
 

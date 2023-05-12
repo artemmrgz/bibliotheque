@@ -35,16 +35,9 @@ class SavedBooksViewController: BooksListViewController {
             savedBooks = books
             tableView.reloadData()
         } else {
-            showErrorAlert(title: "Error", message: "We could not process your request. Please try again.")
+            displaySPAlert(title: "Error", message: "We could not process your request. Please try again.", preset: .custom(UIImage(systemName: "exclamationmark.circle")!), haptic: .error)
         }
     }
-    
-    private func showErrorAlert(title: String, message: String) {
-        let ac = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        ac.addAction(UIAlertAction(title: "OK", style: .default))
-        present(ac, animated: true)
-    }
-    
 }
 
 extension SavedBooksViewController: UITableViewDelegate, UITableViewDataSource {

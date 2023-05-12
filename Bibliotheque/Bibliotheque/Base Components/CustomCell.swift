@@ -9,7 +9,7 @@ import UIKit
 
 class CustomCell: UITableViewCell {
     
-    static let rowHeight: CGFloat = 90
+    static let rowHeight: CGFloat = 96
     class var reuseID: String {
         return "CustomCell"
     }
@@ -32,11 +32,17 @@ class CustomCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+
+        bookCoverImageView.layer.cornerRadius = bookCoverImageView.bounds.width * Resources.cornerRadiusCoefficient
+    }
+    
     private func setup() {
         contentView.backgroundColor = Resources.Color.backgroundBeige
         
         cellView.translatesAutoresizingMaskIntoConstraints = false
-        cellView.layer.cornerRadius = 14
+        cellView.layer.cornerRadius = CustomCell.rowHeight * Resources.cornerRadiusCoefficient
         cellView.backgroundColor = .white
         
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -45,7 +51,6 @@ class CustomCell: UITableViewCell {
         stackView.setContentHuggingPriority(.defaultLow, for: .horizontal)
         
         bookCoverImageView.translatesAutoresizingMaskIntoConstraints = false
-        bookCoverImageView.layer.cornerRadius = 8
         bookCoverImageView.clipsToBounds = true
         bookCoverImageView.contentMode = .scaleAspectFill
         bookCoverImageView.setContentHuggingPriority(.defaultHigh, for: .horizontal)
@@ -57,7 +62,7 @@ class CustomCell: UITableViewCell {
         
         authorLabel.translatesAutoresizingMaskIntoConstraints = false
         authorLabel.font = UIFont.preferredFont(forTextStyle: .callout)
-        authorLabel.numberOfLines = 0
+        authorLabel.numberOfLines = 2
         authorLabel.textColor = Resources.Color.textNavy
         
         chevronImageView.translatesAutoresizingMaskIntoConstraints = false
@@ -80,8 +85,8 @@ class CustomCell: UITableViewCell {
             cellView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             cellView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             
-            bookCoverImageView.topAnchor.constraint(equalTo: cellView.topAnchor, constant: 4),
-            bookCoverImageView.bottomAnchor.constraint(equalTo: cellView.bottomAnchor, constant: -4),
+            bookCoverImageView.topAnchor.constraint(equalTo: cellView.topAnchor, constant: 8),
+            bookCoverImageView.bottomAnchor.constraint(equalTo: cellView.bottomAnchor, constant: -8),
             bookCoverImageView.leadingAnchor.constraint(equalTo: cellView.leadingAnchor, constant: 8),
             bookCoverImageView.trailingAnchor.constraint(equalTo: stackView.leadingAnchor, constant: -16),
             bookCoverImageView.widthAnchor.constraint(equalTo: bookCoverImageView.heightAnchor, multiplier: 0.65),

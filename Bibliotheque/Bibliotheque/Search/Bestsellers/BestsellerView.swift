@@ -34,7 +34,7 @@ class BestsellerView: UIView {
     private func style() {
         translatesAutoresizingMaskIntoConstraints = false
         backgroundColor = Resources.Color.textNavy
-        layer.cornerRadius = 200 * 10 / 57
+        layer.cornerRadius = height * Resources.cornerRadiusCoefficient
         
         logoImageView.translatesAutoresizingMaskIntoConstraints = false
         logoImageView.contentMode = .scaleAspectFit

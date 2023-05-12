@@ -42,11 +42,11 @@ class BestsellerResultCell: UITableViewCell {
         contentView.backgroundColor = Resources.Color.backgroundBeige
         
         cellView.translatesAutoresizingMaskIntoConstraints = false
-        cellView.layer.cornerRadius = 14
+        cellView.layer.cornerRadius = 20
         cellView.backgroundColor = .white
         
         rankView.translatesAutoresizingMaskIntoConstraints = false
-        rankView.layer.cornerRadius = 10
+        rankView.layer.cornerRadius = 12
         rankView.backgroundColor = Resources.Color.textNavy
         rankView.setContentHuggingPriority(.defaultLow, for: .vertical)
         
@@ -84,7 +84,7 @@ class BestsellerResultCell: UITableViewCell {
         descriptionLabel.numberOfLines = 0
         
         coverImageView.translatesAutoresizingMaskIntoConstraints = false
-        coverImageView.layer.cornerRadius = 8
+        coverImageView.layer.cornerRadius = 12
         coverImageView.clipsToBounds = true
         coverImageView.contentMode = .scaleAspectFill
         coverImageView.image = UIImage(named: "book-question-mark")

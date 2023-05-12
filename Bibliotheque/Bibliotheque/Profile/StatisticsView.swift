@@ -23,7 +23,7 @@ class StatisticsView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        layer.cornerRadius = bounds.height * 0.17
+        layer.cornerRadius = bounds.height * Resources.cornerRadiusCoefficient
     }
     
     required init?(coder: NSCoder) {

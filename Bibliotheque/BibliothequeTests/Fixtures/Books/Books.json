@@ -1,0 +1,77 @@
+{
+   "resultCount":2,
+   "results":[
+      {
+         "artistId":273477616,
+         "artistName":"Brandon Sanderson",
+         "genres":[
+            "Epic",
+            "Books",
+            "Sci-Fi & Fantasy",
+            "Fantasy",
+            "Fiction & Literature"
+         ],
+         "price":9.99,
+         "currency":"USD",
+         "description":"<b>#1 <i>New York Times<\/i> bestselling author Brandon Sanderson expands his Cosmere universe shared by The Stormlight Archive and Mistborn with a new standalone novel for everyone who loved <i>The Princess Bride<\/i>.<\/b><br /><br />The only life Tress has known on her island home in an emerald-green ocean has been a simple one, with the simple pleasures of collecting cups brought by sailors from faraway lands and listening to stories told by her friend Charlie. But when his father takes him on a voyage to find a bride and disaster strikes, Tress must stow away on a ship and seek the Sorceress of the deadly Midnight Sea. Amid the spore oceans where pirates abound, can Tress leave her simple life behind and make her own place sailing a sea where a single drop of water can mean instant death?<br /><br /><b>Note from Brandon:<\/b><br /><br />I started writing this in secret, as a novel just for my wife. She urged me to share it with the world—and alongside three other secret novels, with the support of readers worldwide it grew into the biggest Kickstarter campaign of all time. I’m excited to present this first book to you at last: a different type of Brandon Sanderson story, one I wrote when there were no time constraints, no expectations, and no limits on my imagination. Come be part of the magic.",
+         "artistIds":[
+            273477616
+         ],
+         "releaseDate":"2023-01-10T08:00:00Z",
+         "genreIds":[
+            "11002",
+            "38",
+            "9020",
+            "10044",
+            "9031"
+         ],
+         "trackId":6445129603,
+         "trackName":"Tress of the Emerald Sea",
+         "artworkUrl60":"https://is4-ssl.mzstatic.com/image/thumb/Publication113/v4/06/cf/d6/06cfd633-e1be-2cec-0514-404f1369d184/8985bcc2-f7a7-4d7f-abcf-2bbe1062015c_cover_image.jpg/60x60bb.jpg",
+         "artworkUrl100":"https://is4-ssl.mzstatic.com/image/thumb/Publication113/v4/06/cf/d6/06cfd633-e1be-2cec-0514-404f1369d184/8985bcc2-f7a7-4d7f-abcf-2bbe1062015c_cover_image.jpg/100x100bb.jpg",
+         "artistViewUrl":"https://books.apple.com/us/artist/brandon-sanderson/273477616?uo=4",
+         "trackViewUrl":"https://books.apple.com/us/book/tress-of-the-emerald-sea/id6445129603?uo=4",
+         "trackCensoredName":"Tress of the Emerald Sea",
+         "fileSizeBytes":12560457,
+         "formattedPrice":"$9.99",
+         "kind":"ebook",
+         "averageUserRating":4.5,
+         "userRatingCount":371
+      },
+      {
+         "artistId":273477616,
+         "artistName":"Brandon Sanderson",
+         "genres":[
+            "Epic",
+            "Books",
+            "Sci-Fi & Fantasy",
+            "Fantasy"
+         ],
+         "price":7.99,
+         "currency":"USD",
+         "description":"<b>Now with over 10 million copies sold, The Mistborn Series has the thrills of a heist story, the twistiness of political intrigue, and the epic scale of a landmark fantasy saga.<\/b><br /><br />For a thousand years the ash fell and no flowers bloomed. For a thousand years the Skaa slaved in misery and lived in fear. For a thousand years the Lord Ruler, the \"Sliver of Infinity,\" reigned with absolute power and ultimate terror, divinely invincible. Then, when hope was so long lost that not even its memory remained, a terribly scarred, heart-broken half-Skaa rediscovered it in the depths of the Lord Ruler's most hellish prison. Kelsier \"snapped\" and found in himself the powers of a Mistborn. A brilliant thief and natural leader, he turned his talents to the ultimate caper, with the Lord Ruler himself as the mark.<br /><br />Kelsier recruited the underworld's elite, the smartest and most trustworthy allomancers, each of whom shares one of his many powers, and all of whom relish a high-stakes challenge. Only then does he reveal his ultimate dream, not just the greatest heist in history, but the downfall of the divine despot.<br /><br />But even with the best criminal crew ever assembled, Kel's plan looks more like the ultimate long shot, until luck brings a ragged girl named Vin into his life. Like him, she's a half-Skaa orphan, but she's lived a much harsher life. Vin has learned to expect betrayal from everyone she meets, and gotten it. She will have to learn to trust, if Kel is to help her master powers of which she never dreamed.<br /><br />This saga dares to ask a simple question: What if the hero of prophecy fails?<br /><br /><b>Other Tor books by Brandon Sanderson<\/b><br /><br /><b>The Cosmere<\/b><br /><br /><b>The Stormlight Archive<\/b><br /><i>The Way of Kings<\/i><br /><i>Words of Radiance<\/i><br /><i>Edgedancer <\/i>(Novella)<br /><i>Oathbringer<\/i> <br /><br /><b>The Mistborn trilogy<\/b><br /><i>Mistborn: The Final Empire<br />The Well of Ascension<br />The Hero of Ages<br /><br /><\/i><b>Mistborn: The Wax and Wayne series<\/b><br /><i>Alloy of Law<br />Shadows of Self<br />Bands of Mourning<\/i><br /><br /><b>Collection<\/b><br /><i>Arcanum Unbounded<\/i><br /><br /><b>Other Cosmere novels<\/b><br /><i>Elantris<\/i><br /><i>Warbreaker<\/i><br /><br /><b>The Alcatraz vs. the Evil Librarians series<\/b><br /><i>Alcatraz vs. the Evil Librarians<\/i><br /><i>The Scrivener's Bones<\/i><br /><i>The Knights of Crystallia<\/i><br /><i>The Shattered Lens<\/i><br /><i>The Dark Talent<\/i><br /><br /><b>The Rithmatist series<br /><\/b><i>The Rithmatist<\/i><br /><br /><b>Other books by Brandon Sanderson<\/b><br /><br /><b>The Reckoners<\/b><br /><i>Steelheart<\/i><br /><i>Firefight<\/i><br /><i>Calamity<\/i><br /><br />At the Publisher's request, this title is being sold without Digital Rights Management Software (DRM) applied.",
+         "artistIds":[
+            273477616
+         ],
+         "releaseDate":"2010-04-01T07:00:00Z",
+         "genreIds":[
+            "11002",
+            "38",
+            "9020",
+            "10044"
+         ],
+         "trackId":386002824,
+         "trackName":"Mistborn",
+         "artworkUrl60":"https://is1-ssl.mzstatic.com/image/thumb/Publication116/v4/b5/0c/31/b50c3199-b99c-3e54-81a9-cae1d3009434/9781429914567.jpg/60x60bb.jpg",
+         "artworkUrl100":"https://is1-ssl.mzstatic.com/image/thumb/Publication116/v4/b5/0c/31/b50c3199-b99c-3e54-81a9-cae1d3009434/9781429914567.jpg/100x100bb.jpg",
+         "artistViewUrl":"https://books.apple.com/us/artist/brandon-sanderson/273477616?uo=4",
+         "trackViewUrl":"https://books.apple.com/us/book/mistborn/id386002824?uo=4",
+         "trackCensoredName":"Mistborn",
+         "fileSizeBytes":16525456,
+         "formattedPrice":"$7.99",
+         "kind":"ebook",
+         "averageUserRating":4.5,
+         "userRatingCount":2572
+      }
+   ]
+}

@@ -1,0 +1,41 @@
+{
+   "resultCount":1,
+   "results": [
+       {
+          "artistId":273477616,
+          "artistName":"Brandon Sanderson",
+          "genres":[
+             "Epic",
+             "Books",
+             "Sci-Fi & Fantasy",
+             "Fantasy"
+          ],
+          "price":14.99,
+          "currency":"USD",
+          "description":"<b>Return to #1 <i>New York Times<\/i> bestseller Brandon Sanderson’s Mistborn world of Scadrial as its second era, which began with <i>The Alloy of Law<\/i>, comes to its earth-shattering conclusion in<i> The Lost Metal.<\/i><\/b><br /><br /> For years, frontier lawman turned big-city senator Waxillium Ladrian has hunted the shadowy organization the Set—with his late uncle and his sister among their leaders—since they started kidnapping people with the power of Allomancy in their bloodlines. When Detective Marasi Colms and her partner Wayne find stockpiled weapons bound for the Outer City of Bilming, this opens a new lead. Conflict between Elendel and the Outer Cities only favors the Set, and their tendrils now reach to the Elendel Senate—whose corruption Wax and Steris have sought to expose—and Bilming is even more entangled.<br /><br />After Wax discovers a new type of explosive that can unleash unprecedented destruction and realizes that the Set must already have it, an immortal kandra serving Scadrial’s god, Harmony, reveals that Bilming has fallen under the influence of another god: Trell, worshipped by the Set. And Trell isn’t the only factor at play from the larger Cosmere—Marasi is recruited by offworlders with strange abilities who claim their goal is to protect Scadrial...at any cost.<br /><br />Wax must choose whether to set aside his rocky relationship with God and once again become the Sword that Harmony has groomed him to be. If no one steps forward to be the hero Scadrial needs, the planet and its millions of people will come to a sudden and calamitous ruin.<br /><br /><b>Other Tor books by Brandon Sanderson<\/b><br /><br /> <b>The Cosmere<\/b><br /> <b><br /> The Stormlight Archive<\/b><br /> <i>The Way of Kings<\/i><br /> <i>Words of Radiance<\/i><br /> <i>Edgedancer <\/i>(Novella)<br /> <i>Oathbringer<\/i><br /><i>Dawnshard<\/i> (Novella)<br /><i>Rhythm of War<\/i><b><br /><br /> The Mistborn trilogy<\/b><br /> <i>Mistborn: The Final Empire<br /> The Well of Ascension<br /> The Hero of Ages<br /><br /> <\/i><b>Mistborn: The Wax and Wayne series<\/b><br /> <i>Alloy of Law<br /> Shadows of Self<br /> Bands of Mourning<\/i><br /><i>The Lost Metal<\/i><br /><br /> <b>Collection<\/b><br /> <i>Arcanum Unbounded<\/i><br /><br /> <b>Other Cosmere novels<\/b><br /> <i>Elantris<\/i><br /> <i>Warbreaker<\/i><br /><br /> <b>The Alcatraz vs. the Evil Librarians series<\/b><br /> <i>Alcatraz vs. the Evil Librarians<\/i><br /> <i>The Scrivener's Bones<\/i><br /> <i>The Knights of Crystallia<\/i><br /> <i>The Shattered Lens<\/i><br /> <i>The Dark Talent<\/i><br /><br /> <b>The Rithmatist series<br /> <\/b><i>The Rithmatist<\/i><br /><br /> <b>Other books by Brandon Sanderson<\/b><br /> <b><br /> The Reckoners<\/b><br /> <i>Steelheart<\/i><br /> <i>Firefight<\/i><br /> <i>Calamity<\/i><br /><br />At the Publisher's request, this title is being sold without Digital Rights Management Software (DRM) applied.",
+          "artistIds":[
+             273477616
+          ],
+          "releaseDate":"2022-11-15T08:00:00Z",
+          "genreIds":[
+             "11002",
+             "38",
+             "9020",
+             "10044"
+          ],
+          "trackId":1598914426,
+          "trackName":"The Lost Metal",
+          "artworkUrl60":"https://is3-ssl.mzstatic.com/image/thumb/Publication112/v4/ce/56/61/ce5661ed-d2e2-9b09-29fa-450723f025a6/9780765391209.jpg/60x60bb.jpg",
+          "artistViewUrl":"https://books.apple.com/us/artist/brandon-sanderson/273477616?uo=4",
+          "trackViewUrl":"https://books.apple.com/us/book/the-lost-metal/id1598914426?uo=4",
+          "trackCensoredName":"The Lost Metal",
+          "fileSizeBytes":10378576,
+          "formattedPrice":"$14.99",
+          "kind":"ebook",
+          "userRatingCount":667
+       }
+    ]
+}
+
+       
+

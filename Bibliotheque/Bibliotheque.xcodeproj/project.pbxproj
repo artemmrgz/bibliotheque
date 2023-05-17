@@ -40,10 +40,14 @@
 		D999653B29EB1A1E00288FBC /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = D999653A29EB1A1E00288FBC /* Resources.swift */; };
 		D9C6C10729EC17F10074C975 /* BestsellerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C6C10629EC17F10074C975 /* BestsellerView.swift */; };
 		D9D60CCF2A0663F600614542 /* DocumentsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D60CCE2A0663F600614542 /* DocumentsManager.swift */; };
-		D9D60CD72A14CAD700614542 /* BibliothequeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D60CD62A14CAD700614542 /* BibliothequeTests.swift */; };
 		D9D60CDE2A14CE2F00614542 /* BookManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D60CDD2A14CE2F00614542 /* BookManager.swift */; };
 		D9D60CE02A14E52400614542 /* SearchViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D60CDF2A14E52400614542 /* SearchViewControllerTests.swift */; };
 		D9D60CE22A1547B400614542 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D60CE12A1547B300614542 /* BaseViewController.swift */; };
+		D9D60CE82A1571CB00614542 /* Books.json in Resources */ = {isa = PBXBuildFile; fileRef = D9D60CE72A1571CB00614542 /* Books.json */; };
+		D9D60CEA2A1574C700614542 /* BookDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D60CE92A1574C700614542 /* BookDataTests.swift */; };
+		D9D60CEC2A157B7200614542 /* BooksWithEmptyFields.json in Resources */ = {isa = PBXBuildFile; fileRef = D9D60CEB2A157B7200614542 /* BooksWithEmptyFields.json */; };
+		D9D60CEE2A157EA600614542 /* BestsellerBookDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D60CED2A157EA600614542 /* BestsellerBookDataTests.swift */; };
+		D9D60CF22A157F3B00614542 /* BestsellerBooks.json in Resources */ = {isa = PBXBuildFile; fileRef = D9D60CF12A157F3B00614542 /* BestsellerBooks.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,10 +98,14 @@
 		D9C6C10629EC17F10074C975 /* BestsellerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestsellerView.swift; sourceTree = "<group>"; };
 		D9D60CCE2A0663F600614542 /* DocumentsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentsManager.swift; sourceTree = "<group>"; };
 		D9D60CD42A14CAD700614542 /* BibliothequeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BibliothequeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		D9D60CD62A14CAD700614542 /* BibliothequeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BibliothequeTests.swift; sourceTree = "<group>"; };
 		D9D60CDD2A14CE2F00614542 /* BookManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookManager.swift; sourceTree = "<group>"; };
 		D9D60CDF2A14E52400614542 /* SearchViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewControllerTests.swift; sourceTree = "<group>"; };
 		D9D60CE12A1547B300614542 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		D9D60CE72A1571CB00614542 /* Books.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Books.json; sourceTree = "<group>"; };
+		D9D60CE92A1574C700614542 /* BookDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDataTests.swift; sourceTree = "<group>"; };
+		D9D60CEB2A157B7200614542 /* BooksWithEmptyFields.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = BooksWithEmptyFields.json; sourceTree = "<group>"; };
+		D9D60CED2A157EA600614542 /* BestsellerBookDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestsellerBookDataTests.swift; sourceTree = "<group>"; };
+		D9D60CF12A157F3B00614542 /* BestsellerBooks.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = BestsellerBooks.json; sourceTree = "<group>"; };
 		F323F49AFC4F9A57F43F20B5 /* Pods_Bibliotheque.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Bibliotheque.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -282,10 +290,46 @@
 		D9D60CD52A14CAD700614542 /* BibliothequeTests */ = {
 			isa = PBXGroup;
 			children = (
-				D9D60CD62A14CAD700614542 /* BibliothequeTests.swift */,
+				D9D60CF32A15833100614542 /* ParseDataTests */,
+				D9D60CE32A15707500614542 /* Fixtures */,
 				D9D60CDF2A14E52400614542 /* SearchViewControllerTests.swift */,
 			);
 			path = BibliothequeTests;
+			sourceTree = "<group>";
+		};
+		D9D60CE32A15707500614542 /* Fixtures */ = {
+			isa = PBXGroup;
+			children = (
+				D9D60CF02A157EF000614542 /* BestsellerBooks */,
+				D9D60CEF2A157ED500614542 /* Books */,
+			);
+			path = Fixtures;
+			sourceTree = "<group>";
+		};
+		D9D60CEF2A157ED500614542 /* Books */ = {
+			isa = PBXGroup;
+			children = (
+				D9D60CE72A1571CB00614542 /* Books.json */,
+				D9D60CEB2A157B7200614542 /* BooksWithEmptyFields.json */,
+			);
+			path = Books;
+			sourceTree = "<group>";
+		};
+		D9D60CF02A157EF000614542 /* BestsellerBooks */ = {
+			isa = PBXGroup;
+			children = (
+				D9D60CF12A157F3B00614542 /* BestsellerBooks.json */,
+			);
+			path = BestsellerBooks;
+			sourceTree = "<group>";
+		};
+		D9D60CF32A15833100614542 /* ParseDataTests */ = {
+			isa = PBXGroup;
+			children = (
+				D9D60CE92A1574C700614542 /* BookDataTests.swift */,
+				D9D60CED2A157EA600614542 /* BestsellerBookDataTests.swift */,
+			);
+			path = ParseDataTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -380,6 +424,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9D60CE82A1571CB00614542 /* Books.json in Resources */,
+				D9D60CEC2A157B7200614542 /* BooksWithEmptyFields.json in Resources */,
+				D9D60CF22A157F3B00614542 /* BestsellerBooks.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -471,8 +518,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9D60CEE2A157EA600614542 /* BestsellerBookDataTests.swift in Sources */,
+				D9D60CEA2A1574C700614542 /* BookDataTests.swift in Sources */,
 				D9D60CE02A14E52400614542 /* SearchViewControllerTests.swift in Sources */,
-				D9D60CD72A14CAD700614542 /* BibliothequeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

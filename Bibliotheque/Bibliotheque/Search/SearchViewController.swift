@@ -160,5 +160,11 @@ extension SearchViewController {
     func forceFetchBooks() {
         fetchBooks(containing: "test text")
     }
+    
+    func forceFetchBestsellerBooks() {
+        bestsellerBookManager.fetchBooks(for: .fiction) { [weak self] result in
+            self?.processResult(result)
+        }
+    }
 }
     

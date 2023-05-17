@@ -11,7 +11,6 @@ class BestsellerResultsViewController: BooksListViewController {
     
     var books: [BestsellerBook]? {
         didSet {
-            tableView.reloadData()
             activityIndicator.stopAnimating()
             activityIndicator.isHidden = true
         }

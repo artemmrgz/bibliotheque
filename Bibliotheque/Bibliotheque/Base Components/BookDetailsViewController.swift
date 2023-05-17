@@ -7,7 +7,7 @@
 
 import UIKit
 
-class BookDetailsViewController: UIViewController {
+class BookDetailsViewController: BaseViewController {
     
     let coverPlaceholderView = CoverView()
     let floatingCoverView = CoverView()

@@ -7,8 +7,7 @@
 
 import UIKit
 
-class SearchViewController: UIViewController {
-    let networkService = NetworkService()
+class SearchViewController: BaseViewController {
     let searchController =  UISearchController(searchResultsController: SearchResultsViewController())
     var bestsellersVC: BestsellerResultsViewController? = nil
     
@@ -16,6 +15,9 @@ class SearchViewController: UIViewController {
     let stackView = UIStackView()
     let fictionBestsellerView = BestsellerView(category: "Fiction")
     let nonfictionBestsellerView = BestsellerView(category: "Nonfiction")
+    
+    var bookManager: BookManageable = BookManager()
+    var bestsellerBookManager: BestsellerBookManageable = BestsellerBookManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,14 +75,14 @@ class SearchViewController: UIViewController {
         
         fictionBestsellerView.onClick = { [weak self] in
             self?.presentBestsellersVC(withTitle: "Fiction Bestsellers")
-            self?.networkService.fetchBestsellers(for: BestsellerCategory.fiction) { result in
+            self?.bestsellerBookManager.fetchBooks(for: .fiction) { result in
                 self?.processResult(result)
             }
         }
         
         nonfictionBestsellerView.onClick = { [weak self] in
             self?.presentBestsellersVC(withTitle: "Nonfiction Bestsellers")
-            self?.networkService.fetchBestsellers(for: BestsellerCategory.nonFiction) { result in
+            self?.bestsellerBookManager.fetchBooks(for: .nonFiction) { result in
                 self?.processResult(result)
             }
         }
@@ -89,14 +91,14 @@ class SearchViewController: UIViewController {
     private func presentBestsellersVC(withTitle title: String) {
         bestsellersVC = BestsellerResultsViewController()
         bestsellersVC?.title = title
-        navigationController?.pushViewController(bestsellersVC!, animated: true)
+        navigationController?.pushViewController(bestsellersVC!, animated: false)
     }
     
     private func processResult(_ result: Result<[BestsellerBook], NetworkError>) {
-        guard let bestsellersVC = bestsellersVC else { return }
         switch result {
         case .success(let books):
-            bestsellersVC.books = books
+            bestsellersVC?.books = books
+            bestsellersVC?.tableView.reloadData()
         case .failure(let error):
             displayError(error)
         }
@@ -104,7 +106,7 @@ class SearchViewController: UIViewController {
     
     private func displayError(_ error: NetworkError) {
         let (title, message) = titleAndMessage(for: error)
-        bestsellersVC?.displaySPAlert(title: title, message: message, preset: .custom(UIImage(systemName: "exclamationmark.circle")!), haptic: .error)
+        displaySPAlert(title: title, message: message, preset: .custom(UIImage(systemName: "exclamationmark.circle")!), haptic: .error)
     }
     
     private func titleAndMessage(for error: NetworkError) -> (String, String) {
@@ -117,20 +119,24 @@ class SearchViewController: UIViewController {
             message = "Please make sure you are connected to the internet"
         case .decodingError:
             title = "Network Error"
-            message = "We could not process your request. Please try again."
+            message = "We could not process your request. Please try again"
         }
         return (title, message)
     }
 }
 
+//MARK: UISearchBarDelegate
 extension SearchViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         guard let searchText = searchBar.text else { return }
-        
         let updatedText = searchText.replacingOccurrences(of: " ", with: "+")
         
-        networkService.fetchBooks(containing: updatedText) { [weak self] result in
+        fetchBooks(containing: updatedText)
+    }
+    
+    private func fetchBooks(containing text: String) {
+        bookManager.fetchBooks(containing: text) { [weak self] result in
             switch result {
             case .success(let books):
                 let vc = self?.searchController.searchResultsController as? SearchResultsViewController
@@ -142,6 +148,17 @@ extension SearchViewController: UISearchBarDelegate {
                 self?.displayError(error)
             }
         }
+    }
+}
+
+// MARK: Unit testing
+extension SearchViewController {
+    func titleAndMessageForTesting(for error: NetworkError) -> (String, String) {
+        return titleAndMessage(for: error)
+    }
+    
+    func forceFetchBooks() {
+        fetchBooks(containing: "test text")
     }
 }
     

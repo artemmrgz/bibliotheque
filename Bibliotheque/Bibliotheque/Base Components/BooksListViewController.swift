@@ -8,7 +8,7 @@
 import UIKit
 import SPAlert
 
-class BooksListViewController: UIViewController {
+class BooksListViewController: BaseViewController {
     
     let tableView = UITableView()
 

@@ -7,12 +7,23 @@
 
 import Foundation
 import XCTest
+import SPAlert
 @testable import Bibliotheque
 
 class SearchViewControllerTests: XCTestCase {
-    var vc: SearchViewController!
+    var vc: TestableSearchViewController!
     var mockBookManager: MockBookManager!
     var mockBestsellerBookManager: MockBestsellerBookManager!
+    
+    class TestableSearchViewController: SearchViewController {
+        var alertTitle: String!
+        var alertMessage: String?
+        
+        override func displaySPAlert(title: String, message: String? = nil, preset: SPAlertIconPreset, haptic: SPAlertHaptic, completion: (() -> Void)? = nil) {
+            self.alertTitle = title
+            self.alertMessage = message
+        }
+    }
     
     class MockBookManager: BookManageable {
         var books: Books?
@@ -69,7 +80,7 @@ class SearchViewControllerTests: XCTestCase {
     override func setUp() {
         super.setUp()
         
-        vc = SearchViewController()
+        vc = TestableSearchViewController()
         mockBookManager = MockBookManager()
         mockBestsellerBookManager = MockBestsellerBookManager()
         vc.bookManager = mockBookManager
@@ -91,29 +102,29 @@ class SearchViewControllerTests: XCTestCase {
     func testAlertForServerErrorWhenFetchingBooks() {
         mockBookManager.error = .serverError
         vc.forceFetchBooks()
-        XCTAssertEqual(vc.alertView.titleLabel?.text, "Server Error")
-        XCTAssertEqual(vc.alertView.subtitleLabel?.text, "Please make sure you are connected to the internet")
+        XCTAssertEqual(vc.alertTitle, "Server Error")
+        XCTAssertEqual(vc.alertMessage, "Please make sure you are connected to the internet")
     }
     
     func testAlertForDecodingErrorWhenFetchingBooks() {
         mockBookManager.error = .decodingError
         vc.forceFetchBooks()
-        XCTAssertEqual(vc.alertView.titleLabel?.text, "Network Error")
-        XCTAssertEqual(vc.alertView.subtitleLabel?.text, "We could not process your request. Please try again")
+        XCTAssertEqual(vc.alertTitle, "Network Error")
+        XCTAssertEqual(vc.alertMessage, "We could not process your request. Please try again")
     }
     
     func testAlertForServerErrorWhenFetchingBestsellerBooks() {
         mockBestsellerBookManager.error = .serverError
         vc.forceFetchBestsellerBooks()
-        XCTAssertEqual(vc.alertView.titleLabel?.text, "Server Error")
-        XCTAssertEqual(vc.alertView.subtitleLabel?.text, "Please make sure you are connected to the internet")
+        XCTAssertEqual(vc.alertTitle, "Server Error")
+        XCTAssertEqual(vc.alertMessage, "Please make sure you are connected to the internet")
     }
     
     func testAlertForDecodingErrorWhenFetchingBestsellerBooks() {
         mockBestsellerBookManager.error = .decodingError
         vc.forceFetchBestsellerBooks()
-        XCTAssertEqual(vc.alertView.titleLabel?.text, "Network Error")
-        XCTAssertEqual(vc.alertView.subtitleLabel?.text, "We could not process your request. Please try again")
+        XCTAssertEqual(vc.alertTitle, "Network Error")
+        XCTAssertEqual(vc.alertMessage, "We could not process your request. Please try again")
     }
     
     override func tearDown() {

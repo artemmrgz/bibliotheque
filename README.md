@@ -1,14 +1,16 @@
-# Bibliotheque
-Bibliotheque is a simple app which allows users to explore new books, add them to reading list and then mark them as read when they are finished.
+ # Bibliotheque
 
-To find their next book, user can either check New York Times Bestseller list:
+## Description:
+Bibliotheque is a simple app which allows users to explore new books, add/remove them to/from reading list and keep track of books that are currently saved and ones that have been read. To find their next book, user can either check New York Times Bestseller list or simply search by author or title.
 
-<img src="screenshots/search-screen.png" width=200> <img src="screenshots/bestsellers-list.png" width=200> 
+Technologies used:
+* CoreData: to save books user would like to read;
+* Networking(URLSession): for retrieving data using iTunes books and New York Times APIs;
+* TableView: for displaying searched, saved and bestseller books; ScrollView: for bestseller sections;
+* ImagePicker: for changing user's profile picture;
+* MVC pattern;
+* Unit testing
 
-or simply search by author or title:
+## Current look
+https://github.com/artemmrgz/bibliotheque/assets/83667809/f1a97516-164a-4673-88ab-992fd7845cae
 
-<img src="screenshots/search-results.png" width=200> <img src="screenshots/detail-screen.png" width=200>
-
-Saved books appears in Saved tab. User also has a possibility to keep track of books that are currently saved and ones that have been read.
-
-<img src="screenshots/saved-books.png" width=200> <img src="screenshots/profile.png" width=200>

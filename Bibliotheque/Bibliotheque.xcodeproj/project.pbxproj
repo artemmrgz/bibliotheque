@@ -25,6 +25,7 @@
 		D9389A0429E6CD360061C6CF /* SearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9389A0329E6CD360061C6CF /* SearchResultsViewController.swift */; };
 		D9389A0929E8049B0061C6CF /* BestsellerBookManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9389A0829E8049B0061C6CF /* BestsellerBookManager.swift */; };
 		D93E6A9729F58F4800B79A35 /* SavedBooksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93E6A9629F58F4800B79A35 /* SavedBooksViewController.swift */; };
+		D93F4D5E2A163C4800C71AEB /* EmptySavedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93F4D5D2A163C4800C71AEB /* EmptySavedView.swift */; };
 		D946551C29E8772D0037108E /* UIImageView+Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = D946551B29E8772D0037108E /* UIImageView+Networking.swift */; };
 		D94A4BC029ED525200E98C5D /* SearchBookDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94A4BBF29ED525200E98C5D /* SearchBookDetailsViewController.swift */; };
 		D94A4BC229ED811E00E98C5D /* CoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94A4BC129ED811E00E98C5D /* CoverView.swift */; };
@@ -82,6 +83,7 @@
 		D9389A0329E6CD360061C6CF /* SearchResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsViewController.swift; sourceTree = "<group>"; };
 		D9389A0829E8049B0061C6CF /* BestsellerBookManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestsellerBookManager.swift; sourceTree = "<group>"; };
 		D93E6A9629F58F4800B79A35 /* SavedBooksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedBooksViewController.swift; sourceTree = "<group>"; };
+		D93F4D5D2A163C4800C71AEB /* EmptySavedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptySavedView.swift; sourceTree = "<group>"; };
 		D946551B29E8772D0037108E /* UIImageView+Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Networking.swift"; sourceTree = "<group>"; };
 		D94A4BBF29ED525200E98C5D /* SearchBookDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBookDetailsViewController.swift; sourceTree = "<group>"; };
 		D94A4BC129ED811E00E98C5D /* CoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverView.swift; sourceTree = "<group>"; };
@@ -264,6 +266,7 @@
 			children = (
 				D96CBBB629F19C9A006CB1EE /* SavedBookDetailsViewController.swift */,
 				D93E6A9629F58F4800B79A35 /* SavedBooksViewController.swift */,
+				D93F4D5D2A163C4800C71AEB /* EmptySavedView.swift */,
 			);
 			path = Saved;
 			sourceTree = "<group>";
@@ -502,6 +505,7 @@
 				D93899EC29E6A8E80061C6CF /* MainViewController.swift in Sources */,
 				D93899E829E6A8E80061C6CF /* AppDelegate.swift in Sources */,
 				D94A4BC029ED525200E98C5D /* SearchBookDetailsViewController.swift in Sources */,
+				D93F4D5E2A163C4800C71AEB /* EmptySavedView.swift in Sources */,
 				D9293DB82A03EAD300EDAD01 /* RankFormatter.swift in Sources */,
 				D9D60CDE2A14CE2F00614542 /* BookManager.swift in Sources */,
 				D915377B29FBCF6900B26B18 /* BookEntity+CoreDataProperties.swift in Sources */,

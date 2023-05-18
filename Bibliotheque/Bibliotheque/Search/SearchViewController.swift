@@ -52,7 +52,7 @@ class SearchViewController: BaseViewController {
         
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
-        stackView.spacing = 24
+        stackView.spacing = 16
         
         stackView.addArrangedSubview(fictionBestsellerView)
         stackView.addArrangedSubview(nonfictionBestsellerView)

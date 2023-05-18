@@ -10,6 +10,7 @@ import UIKit
 class SavedBooksViewController: BooksListViewController {
     
     var savedBooks = [BookEntity]()
+    let emptySavedView = EmptySavedView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,12 +21,24 @@ class SavedBooksViewController: BooksListViewController {
         tableView.rowHeight = CustomCell.rowHeight
         tableView.delegate = self
         tableView.dataSource = self
+        
+        layoutEmptySavedView()
+    }
+    
+    private func layoutEmptySavedView() {
+        view.addSubview(emptySavedView)
+        
+        NSLayoutConstraint.activate([
+            emptySavedView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            emptySavedView.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        ])
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         fetchBooks()
+        setEmptySavedView()
     }
     
     func fetchBooks() {
@@ -37,6 +50,10 @@ class SavedBooksViewController: BooksListViewController {
         } else {
             displaySPAlert(title: "Error", message: "We could not process your request. Please try again.", preset: .custom(UIImage(systemName: "exclamationmark.circle")!), haptic: .error)
         }
+    }
+    
+    private func setEmptySavedView() {
+        emptySavedView.isHidden = !savedBooks.isEmpty
     }
 }
 
@@ -83,5 +100,7 @@ extension SavedBooksViewController: UITableViewDelegate, UITableViewDataSource {
         
         tableView.deleteRows(at: [indexPath], with: .fade)
         tableView.endUpdates()
+        
+        setEmptySavedView()
     }
 }

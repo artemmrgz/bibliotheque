@@ -17,7 +17,7 @@ struct RankFormatter {
     }
         
     
-    func rankDifferenceFormatted(_ rankDifference: String) -> NSMutableAttributedString {
+    private func rankDifferenceFormatted(_ rankDifference: String) -> NSMutableAttributedString {
         var formatter = rankDifferenceBaseFormatter()
         
         if rankDifference.starts(with: "+") {
@@ -31,14 +31,14 @@ struct RankFormatter {
         return NSMutableAttributedString(string: rankDifference, attributes: formatter)
     }
         
-    func rankDifferenceBaseFormatter() -> [NSAttributedString.Key: Any] {
+    private func rankDifferenceBaseFormatter() -> [NSAttributedString.Key: Any] {
         var numberAttrString = [NSAttributedString.Key: Any]()
         numberAttrString[.font] = UIFont.systemFont(ofSize: 15)
         numberAttrString[.baselineOffset] = 20
         return numberAttrString
     }
     
-    func currentRankFormatted(_ currentRank: String) -> NSMutableAttributedString {
+    private func currentRankFormatted(_ currentRank: String) -> NSMutableAttributedString {
         var rankAttrString = [NSAttributedString.Key: Any]()
         rankAttrString[.font] = UIFont.systemFont(ofSize: 45, weight: .bold)
         rankAttrString[.foregroundColor] = Resources.Color.accentYellow

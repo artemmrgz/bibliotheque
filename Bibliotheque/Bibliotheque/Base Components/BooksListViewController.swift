@@ -20,12 +20,6 @@ class BooksListViewController: BaseViewController {
 
         setupTable()
     }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        
-        SPAlert.dismiss()
-    }
 
     private func setupTable() {
         tableView.translatesAutoresizingMaskIntoConstraints = false

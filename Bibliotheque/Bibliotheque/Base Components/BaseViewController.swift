@@ -27,4 +27,10 @@ class BaseViewController: UIViewController {
         alertView.layout.iconSize = .init(width: 100, height: 100)
         alertView.layout.margins.top = 32
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        SPAlert.dismiss()
+    }
 }

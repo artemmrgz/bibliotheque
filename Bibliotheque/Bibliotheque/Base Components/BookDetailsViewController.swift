@@ -28,6 +28,8 @@ class BookDetailsViewController: BaseViewController {
     
     var buttonTappedCallback: (_ button: UIButton) -> Void = { _ in }
     
+    lazy var savedBookManager: SavedBookManageable = SavedBookManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

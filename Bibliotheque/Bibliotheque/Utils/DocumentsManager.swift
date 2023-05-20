@@ -17,11 +17,10 @@ struct DocumentsManager {
         return paths[0]
     }
     
-    func saveProfilePicture(_ profilePic: UIImage) {
-        let imageData = profilePic.pngData()
+    func saveProfilePicture(_ profilePic: Data) {
         
         do {
-            try imageData?.write(to: profilePicPath)
+            try profilePic.write(to: profilePicPath)
         } catch {
             print(error)
         }

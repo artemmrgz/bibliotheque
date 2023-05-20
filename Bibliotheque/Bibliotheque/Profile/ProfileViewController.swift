@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ProfileViewController: UIViewController {
+class ProfileViewController: BaseViewController {
     
     let imageViewSideSize: CGFloat = 150
     
@@ -18,6 +18,7 @@ class ProfileViewController: UIViewController {
     let readBooks = StatisticsView()
     
     let documentsManager = DocumentsManager()
+    var savedBookManager: SavedBookManageable = SavedBookManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,11 +32,17 @@ class ProfileViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        let savedTotal = getSavedTotal()
-        savedBooks.configureWith(category: "Number of Saved Books", number: savedTotal)
+        if let savedTotal = getSavedTotal() {
+            savedBooks.configureWith(category: "Number of Saved Books", number: savedTotal)
+        } else {
+            displaySPAlert(title: "Couldn't fetch data. Please try later", preset: .custom(UIImage(systemName: "exclamationmark.circle")!), haptic: .error)
+        }
         
-        let readTotal = getReadTotal()
-        readBooks.configureWith(category: "Number of Read Books", number: readTotal)
+        if let readTotal = getReadTotal() {
+            readBooks.configureWith(category: "Number of Read Books", number: readTotal)
+        } else {
+            displaySPAlert(title: "Couldn't fetch data. Please try later", preset: .custom(UIImage(systemName: "exclamationmark.circle")!), haptic: .error)
+        }
     }
     
     private func style() {
@@ -73,16 +80,20 @@ class ProfileViewController: UIViewController {
         ])
     }
     
-    private func getSavedTotal() -> String {
-        let books = CoreDataManager.shared.fetchBooks()
-        let count = books?.count ?? 0
-        return String(describing: count)
+    private func getSavedTotal() -> String? {
+        let books = savedBookManager.fetchBooks(isRead: false)
+        if let books = books {
+            return String(describing: books.count)
+        }
+        return nil
     }
     
-    private func getReadTotal() -> String {
-        let books = CoreDataManager.shared.fetchBooks(isRead: true)
-        let count = books?.count ?? 0
-        return String(describing: count)
+    private func getReadTotal() -> String? {
+        let books = savedBookManager.fetchBooks(isRead: true)
+        if let books = books {
+            return String(describing: books.count)
+        }
+        return nil
     }
     
     private func setupGestureRecognizer() {
@@ -109,10 +120,22 @@ class ProfileViewController: UIViewController {
 
 extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        guard let image = info[.editedImage] as? UIImage else { return }
-        
-        documentsManager.saveProfilePicture(image)
-        imageView.image = image
+        guard let image = info[.editedImage] as? UIImage,
+              let imageData = image.pngData() else { return }
+  
+        documentsManager.saveProfilePicture(imageData)
+        setProfilePicture()
         dismiss(animated: true)
+    }
+}
+
+// MARK: Unit testing
+extension ProfileViewController {
+    func forceGetSavedTotal() -> String? {
+        return getSavedTotal()
+    }
+    
+    func forceGetReadTotal() -> String? {
+        return getReadTotal()
     }
 }

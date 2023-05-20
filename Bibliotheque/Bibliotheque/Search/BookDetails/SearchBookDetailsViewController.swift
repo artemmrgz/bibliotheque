@@ -34,15 +34,15 @@ class SearchBookDetailsViewController: BookDetailsViewController {
             guard let sender = button as? CustomButton, let book = self?.book else { return }
             sender.isSelectedState.toggle()
             
-            let savedBook = CoreDataManager.shared.fetchBook(withName: book.trackName)
+            let savedBook = self?.savedBookManager.fetchBook(withName: book.trackName)
             
             if sender.isSelectedState {
                 if let savedBook = savedBook {
                     savedBook.isRead = false
-                    CoreDataManager.shared.updateBook(book: savedBook)
+                    self?.savedBookManager.updateBook(book: savedBook)
                 } else {
                     let imageData = self?.floatingCoverView.imageView.image?.pngData()
-                    let saved = CoreDataManager.shared.saveBook(book: book, imageData: imageData)
+                    let saved = self?.savedBookManager.saveBook(book: book, imageData: imageData)
                     if saved == nil {
                         self?.displaySPAlert(title: "Error", message: "Unfortunatelly we couldn't save the book. Please try again.", preset: .custom(UIImage(systemName: "exclamationmark.circle")!), haptic: .error)
                     }
@@ -53,7 +53,7 @@ class SearchBookDetailsViewController: BookDetailsViewController {
             } else {
                 guard let savedBook = savedBook else { return }
                 savedBook.isRead = true
-                CoreDataManager.shared.updateBook(book: savedBook)
+                self?.savedBookManager.updateBook(book: savedBook)
                 
                 self?.displaySPAlert(title: "Marked as Read", preset: .done, haptic: .success, completion: {
                     sender.setDefaultStyle()
@@ -66,7 +66,7 @@ class SearchBookDetailsViewController: BookDetailsViewController {
     
     func setButtonStyle() {
         guard let bookName = book?.trackName else { return }
-        let book = CoreDataManager.shared.fetchBook(withName: bookName)
+        let book = savedBookManager.fetchBook(withName: bookName)
         
         if let book = book, book.isRead == false {
             addButton.isSelectedState = true

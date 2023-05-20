@@ -1,5 +1,5 @@
 //
-//  CoreDataManager.swift
+//  SavedBookManager.swift
 //  Bibliotheque
 //
 //  Created by Artem Marhaza on 20/04/2023.
@@ -8,22 +8,23 @@
 import UIKit
 import CoreData
 
-struct CoreDataManager {
+protocol SavedBookManageable {
+    func saveBook(book: Book, imageData: Data?) -> BookEntity?
+    func fetchBooks(isRead: Bool) -> [BookEntity]?
+    func fetchBook(withName name: String) -> BookEntity?
+    func updateBook(book: BookEntity)
+    func deleteBook(withName name: String)
+}
+
+struct SavedBookManager: SavedBookManageable {
     
-    static let shared = CoreDataManager()
+    let context: NSManagedObjectContext
     
-    let persistentContainer: NSPersistentContainer = {
-        let container = NSPersistentContainer(name: "Bibliotheque")
-        container.loadPersistentStores { (storeDescription, error) in
-            if let error = error {
-                fatalError("Loading of store failed \(error)")
-            }
-        }
-        return container
-    }()
+    init(context: NSManagedObjectContext = CoreDataStack.shared.context) {
+        self.context = context
+    }
     
     func saveBook(book: Book, imageData: Data?) -> BookEntity? {
-        let context = persistentContainer.viewContext
         
         let bookEntity = NSEntityDescription.insertNewObject(forEntityName: "BookEntity", into: context) as! BookEntity
         
@@ -46,7 +47,6 @@ struct CoreDataManager {
     }
     
     func fetchBooks(isRead: Bool = false) -> [BookEntity]? {
-        let context = persistentContainer.viewContext
         
         let fetchRequest = BookEntity.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "isRead = %d", isRead)
@@ -62,7 +62,6 @@ struct CoreDataManager {
     }
     
     func fetchBook(withName name: String) -> BookEntity? {
-        let context = persistentContainer.viewContext
         
         let fetchRequest = NSFetchRequest<BookEntity>(entityName: "BookEntity")
         fetchRequest.fetchLimit = 1
@@ -79,7 +78,6 @@ struct CoreDataManager {
     }
     
     func updateBook(book: BookEntity) {
-        let context = persistentContainer.viewContext
         
         do {
             try context.save()
@@ -89,7 +87,6 @@ struct CoreDataManager {
     }
     
     func deleteBook(withName name: String) {
-        let context = persistentContainer.viewContext
         
         let book = fetchBook(withName: name)
         if let book = book {

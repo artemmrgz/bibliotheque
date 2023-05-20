@@ -11,6 +11,8 @@ class SavedBooksViewController: BooksListViewController {
     
     var savedBooks = [BookEntity]()
     let emptySavedView = EmptySavedView()
+    
+    let savedBookManager = SavedBookManager()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,7 +44,7 @@ class SavedBooksViewController: BooksListViewController {
     }
     
     func fetchBooks() {
-        let books = CoreDataManager.shared.fetchBooks()
+        let books = savedBookManager.fetchBooks()
         
         if let books = books {
             savedBooks = books
@@ -96,7 +98,7 @@ extension SavedBooksViewController: UITableViewDelegate, UITableViewDataSource {
         
         let book = savedBooks.remove(at: indexPath.row)
         book.isRead = true
-        CoreDataManager.shared.updateBook(book: book)
+        savedBookManager.updateBook(book: book)
         
         tableView.deleteRows(at: [indexPath], with: .fade)
         tableView.endUpdates()
